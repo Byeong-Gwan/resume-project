@@ -1,0 +1,27 @@
+{
+  "name": "resume-project",
+  "version": "1.0.0",
+  "description": "김병관의 이력서 프로젝트 - Modern portfolio website built with vanilla JavaScript ES6, designed for easy migration to React/Next.js",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx live-server --port=3000 --open=/main --entry-file=index.html",
+    "dev": "npx live-server --port=3000 --open=/main --entry-file=index.html --watch=.",
+    "build": "echo 'No build process needed for vanilla JS'",
+    "test": "echo 'No tests specified'"
+  },
+  "keywords": [
+    "portfolio",
+    "vanilla-javascript",
+    "es6",
+    "frontend",
+    "web-development"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Redirecting...</title>
+  <meta http-equiv="refresh" content="0; url=/" />
+  <script>
+    /*
+     * Single Page Apps for GitHub Pages
+     * https://github.com/rafrex/spa-github-pages
+     * Copyright (c) 2016 Rafael Pedicini, licensed under the MIT License
+     * Modified minimal version for this project
+     */
+    (function() {
+      var l = window.location;
+      var redirect = '/?p=' +
+        (l.pathname + l.search + l.hash)
+          .replace(/\//g, '\u002F')
+          .replace(/\?/g, '\u003F')
+          .replace(/#/g, '\u0023');
+      l.replace(l.protocol + '//' + l.host + redirect);
+    })();
+  </script>
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; padding: 2rem; color: #333; }
+  </style>
+</head>
+<body>
+  Redirecting...
+</body>
+</html>
