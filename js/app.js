@@ -7,12 +7,32 @@ import { ProjectsPage } from './pages/ProjectsPage.js';
 import { ContactPage } from './pages/ContactPage.js';
 import { AboutPage } from './pages/AboutPage.js';
 
+/* ──────────────────────────────────────────────────────────────
+   Base path support for GitHub Pages project pages
+   e.g. https://byeong-gwan.github.io/resume-project/  => BASE="/resume-project"
+   ────────────────────────────────────────────────────────────── */
+const BASE = (() => {
+  // 첫 번째 경로 세그먼트만 추출: "/resume-project"
+  const m = window.location.pathname.match(/^\/[^/]+/);
+  return m ? m[0] : '';
+})();
+const withBase = (p = '/') => {
+  // '/xxx' 형태로 정규화 후 BASE 접두
+  const full = p.startsWith('/') ? p : `/${p}`;
+  const joined = `${BASE}${full}`;
+  // 끝 슬래시 정리(루트는 그대로)
+  return joined === '' ? '/' : joined.replace(/\/+$/, '') || '/';
+};
+const isAtBaseRoot = () => {
+  const p = window.location.pathname;
+  return p === '/' || p === '' || p === BASE || p === `${BASE}/`;
+};
+
 class App {
   constructor() {
     this.router = new Router();
     this.navigation = new Navigation();
     this.footer = new Footer();
-    
     this.init();
   }
 
@@ -20,12 +40,13 @@ class App {
     // Initialize components
     this.navigation.render();
     this.footer.render();
-    
-    // Setup routes
+
+    // Setup routes (반드시 BASE 포함)
     this.setupRoutes();
-    
+
     // Initialize router
     this.router.init();
+
     // Handle GitHub Pages redirect param ?p=... (from 404.html) for SPA routing
     try {
       const url = new URL(window.location.href);
@@ -38,32 +59,34 @@ class App {
             .replace(/\\u003F/g, '?')
             .replace(/\\u0023/g, '#')
         );
-        this.router.navigate(decoded.startsWith('/') ? decoded : `/${decoded}`);
+        const target = decoded.startsWith('/') ? decoded : `/${decoded}`;
+        this.router.navigate(withBase(target));
         // Clean the query string after navigation
-        window.history.replaceState(null, '', decoded);
-      } else if (window.location.pathname === '/' || window.location.pathname === '') {
-        // Ensure default route is /main
-        this.router.navigate('/main');
+        window.history.replaceState(null, '', withBase(target));
+      } else if (isAtBaseRoot()) {
+        // Ensure default route is /main (BASE 포함)
+        this.router.navigate(withBase('/main'));
       }
     } catch (e) {
       // Fallback to default route if URL parsing fails
-      if (window.location.pathname === '/' || window.location.pathname === '') {
-        this.router.navigate('/main');
+      if (isAtBaseRoot()) {
+        this.router.navigate(withBase('/main'));
       }
     }
-    
+
     // Setup global event listeners
     this.setupGlobalEvents();
-    
+
     // Initialize animations
     this.initAnimations();
   }
 
   setupRoutes() {
-    this.router.addRoute('/main', () => new HomePage());
-    this.router.addRoute('/about', () => new AboutPage());
-    this.router.addRoute('/projects', () => new ProjectsPage());
-    this.router.addRoute('/contact', () => new ContactPage());
+    // 라우트 등록 시 절대 경로 앞에 BASE를 붙여줌
+    this.router.addRoute(withBase('/main'),     () => new HomePage());
+    this.router.addRoute(withBase('/about'),    () => new AboutPage());
+    this.router.addRoute(withBase('/projects'), () => new ProjectsPage());
+    this.router.addRoute(withBase('/contact'),  () => new ContactPage());
   }
 
   setupGlobalEvents() {
@@ -72,11 +95,11 @@ class App {
       // Global SPA route handler for any element with data-route
       const routeEl = e.target.closest('[data-route]');
       if (routeEl) {
-        const pathRaw = routeEl.getAttribute('data-route');
+        const pathRaw = routeEl.getAttribute('data-route'); // e.g. "main" or "/main"
         const path = pathRaw && pathRaw.startsWith('/') ? pathRaw : `/${pathRaw || ''}`;
         if (this.router && typeof this.router.navigate === 'function') {
           e.preventDefault();
-          this.router.navigate(path);
+          this.router.navigate(withBase(path));
           return;
         }
       }
@@ -84,8 +107,9 @@ class App {
       const navigateBtn = e.target.closest('[data-navigate]');
       if (navigateBtn) {
         e.preventDefault();
-        const route = navigateBtn.dataset.navigate;
-        this.router.navigate(route === 'home' ? '/main' : `/${route}`);
+        const route = navigateBtn.dataset.navigate; // 'home' | 'about' | 'projects' | 'contact'
+        const target = route === 'home' ? '/main' : `/${route}`;
+        this.router.navigate(withBase(target));
       }
 
       // Handle phone button click
@@ -94,12 +118,12 @@ class App {
         e.preventDefault();
         // Only show contact display on home page
         const currentRoute = window.location.pathname;
-        if (currentRoute === '/main') {
+        if (currentRoute === withBase('/main')) {
           this.showContactDisplay();
           return;
         }
         // If not on home, navigate to home and then show
-        this.router.navigate('/main');
+        this.router.navigate(withBase('/main'));
         setTimeout(() => this.showContactDisplay(), 200);
       }
 
@@ -127,7 +151,7 @@ class App {
 
     // Handle scroll animations
     window.addEventListener('scroll', this.handleScroll.bind(this));
-    
+
     // Handle resize
     window.addEventListener('resize', this.handleResize.bind(this));
   }
@@ -138,7 +162,7 @@ class App {
     elements.forEach(element => {
       const elementTop = element.getBoundingClientRect().top;
       const elementVisible = 150;
-      
+
       if (elementTop < window.innerHeight - elementVisible) {
         element.classList.add('visible');
       }
@@ -157,7 +181,7 @@ class App {
     // Handle responsive behavior
     const nav = document.querySelector('.nav-menu');
     if (window.innerWidth > 768) {
-      nav.classList.remove('active');
+      nav?.classList.remove('active');
     }
   }
 
@@ -167,33 +191,33 @@ class App {
       console.warn('Contact display element not found');
       return;
     }
-    
+
     contactDisplay.style.display = 'block';
-    
+
     // Smooth scroll to contact section
-    contactDisplay.scrollIntoView({ 
-      behavior: 'smooth', 
-      block: 'start' 
+    contactDisplay.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
     });
 
     // Highlight phone number item
     setTimeout(() => {
       const phoneItem = contactDisplay.querySelector('.contact-item:first-child');
-      phoneItem.classList.add('highlight');
+      phoneItem?.classList.add('highlight');
       setTimeout(() => {
-        phoneItem.classList.remove('highlight');
+        phoneItem?.classList.remove('highlight');
       }, 1000);
     }, 300);
   }
 
   hideContactDisplay() {
     const contactDisplay = document.getElementById('contact-display');
-    contactDisplay.style.display = 'none';
-    
+    if (contactDisplay) contactDisplay.style.display = 'none';
+
     // Scroll back to hero section
-    document.querySelector('.hero').scrollIntoView({ 
-      behavior: 'smooth', 
-      block: 'start' 
+    document.querySelector('.hero')?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
     });
   }
 
@@ -216,13 +240,13 @@ class App {
   handleCopyClick(button) {
     const textToCopy = button.dataset.copy;
     const originalText = button.textContent;
-    
+
     // Copy to clipboard
     navigator.clipboard.writeText(textToCopy).then(() => {
       // Show success feedback
       button.textContent = '복사됨!';
       button.classList.add('copied');
-      
+
       // Reset after 2 seconds
       setTimeout(() => {
         button.textContent = originalText;
@@ -236,11 +260,11 @@ class App {
       textArea.select();
       document.execCommand('copy');
       document.body.removeChild(textArea);
-      
+
       // Show success feedback
       button.textContent = '복사됨!';
       button.classList.add('copied');
-      
+
       // Reset after 2 seconds
       setTimeout(() => {
         button.textContent = originalText;
