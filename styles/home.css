@@ -491,6 +491,12 @@
   color: var(--text-primary);
   font-weight: 600;
   font-family: 'Courier New', monospace;
+  /* Prevent overflow on long strings like URLs/emails */
+  display: block;
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .contact-actions {

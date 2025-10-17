@@ -98,6 +98,13 @@ a:hover {
   color: var(--primary-dark);
 }
 
+/* Responsive media: prevent images/videos from overflowing */
+img, video, canvas, svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 /* Layout */
 .container {
   max-width: 1200px;

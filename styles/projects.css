@@ -25,7 +25,8 @@
   padding: var(--spacing-2xl) 0 var(--spacing-3xl);
 }
 
-.projects-filter {
+.projects-filter,
+.projects-filters { /* HTML uses .projects-filters */
   display: flex;
   justify-content: center;
   gap: var(--spacing-md);
@@ -58,7 +59,7 @@
 /* Projects Grid */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: var(--spacing-xl);
 }
 
@@ -337,10 +338,13 @@
     grid-template-columns: 1fr;
   }
   
-  .projects-filter {
+  .projects-filter,
+  .projects-filters {
     justify-content: flex-start;
     overflow-x: auto;
     padding-bottom: var(--spacing-sm);
+    -webkit-overflow-scrolling: touch;
+    flex-wrap: nowrap; /* keep buttons in a row */
   }
   
   .filter-btn {
