@@ -54,12 +54,14 @@ class App {
       if (p) {
         // Decode escaped characters and navigate
         const decoded = decodeURIComponent(
-          p
-            .replace(/\\u002F/g, '/')
-            .replace(/\\u003F/g, '?')
-            .replace(/\\u0023/g, '#')
+            p
+                .replace(/\u002F/g, '/')
+                .replace(/\u003F/g, '?')
+                .replace(/\u0023/g, '#')
         );
-        const target = decoded.startsWith('/') ? decoded : `/${decoded}`;
+        // ✅ p가 "/resume-project/..."처럼 베이스를 포함하면 베이스 제거
+        const clean = decoded.startsWith(BASE) ? decoded.slice(BASE.length) || '/' : decoded;
+        const target = clean.startsWith('/') ? clean : `/${clean}`;
         this.router.navigate(withBase(target));
         // Clean the query string after navigation
         window.history.replaceState(null, '', withBase(target));

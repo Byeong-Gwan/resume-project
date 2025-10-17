@@ -1,25 +1,25 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Redirecting...</title>
-  <meta http-equiv="refresh" content="0; url=/" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Redirecting…</title>
   <script>
-    /*
-     * Single Page Apps for GitHub Pages
-     * https://github.com/rafrex/spa-github-pages
-     * Copyright (c) 2016 Rafael Pedicini, licensed under the MIT License
-     * Modified minimal version for this project
-     */
-    (function() {
+    // 현재 경로에서 첫 세그먼트(= 프로젝트 베이스) 추출: "/resume-project"
+    (function () {
       var l = window.location;
-      var redirect = '/?p=' +
-        (l.pathname + l.search + l.hash)
-          .replace(/\//g, '\u002F')
-          .replace(/\?/g, '\u003F')
-          .replace(/#/g, '\u0023');
-      l.replace(l.protocol + '//' + l.host + redirect);
+
+      // "/resume-project/..." 형태에서 첫 세그먼트만 추출
+      var segs = l.pathname.split('/').filter(Boolean);
+      var base = segs.length ? '/' + segs[0] : '';
+
+      // 베이스를 제거한 나머지 경로 + 쿼리 + 해시
+      var rest = l.pathname.replace(base, '') + l.search + l.hash;
+
+      // "/?p=..." 가 아니라 반드시 "베이스/?p=..." 로 리다이렉트
+      // 예) "/resume-project/?p=/main"
+      var target = base + '/?p=' + encodeURIComponent(rest);
+      l.replace(l.protocol + '//' + l.host + target);
     })();
   </script>
   <style>
@@ -27,6 +27,6 @@
   </style>
 </head>
 <body>
-  Redirecting...
+Redirecting…
 </body>
 </html>
