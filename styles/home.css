@@ -330,11 +330,22 @@
   
   .hero-content {
     padding-right: 0;
+    padding-left: 0; /* remove left padding to align with hero-image center */
   }
   
   .code-animation {
     width: 250px;
     height: 250px;
+  }
+
+  /* Match action block width to code animation on tablet */
+  .hero-actions {
+    width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero .btn {
+    width: 100%;
   }
 }
 
@@ -342,6 +353,14 @@
   .hero {
     padding: var(--spacing-2xl) 0;
     min-height: 60vh;
+  }
+
+  /* Ensure perfect center alignment on mobile */
+  .hero-content,
+  .hero-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   
   .hero-title {
@@ -359,6 +378,16 @@
   .code-animation {
     width: 200px;
     height: 200px;
+  }
+
+  /* Match action block width to code animation on mobile */
+  .hero-actions {
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero .btn {
+    width: 100%;
   }
   
   .skills-grid {
