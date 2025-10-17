@@ -1,4 +1,5 @@
-import { mountTemplateUrl } from '../utils/dom.js';
+import { mountTemplateUrl, withBase } from '../utils/dom.js';
+
 // Navigation Component
 export class Navigation {
   constructor() {
@@ -8,7 +9,7 @@ export class Navigation {
   async render() {
     const navElement = document.getElementById('navigation');
     if (!navElement) return;
-    // Mount external template
+    // 절대경로 대신 withBase 사용
     await mountTemplateUrl('/templates/components/navigation.html', navElement);
     this.attachEventListeners();
   }
@@ -23,7 +24,7 @@ export class Navigation {
         const route = raw.startsWith('/') ? raw : `/${raw}`;
         if (app && app.router && typeof app.router.navigate === 'function') {
           e.preventDefault();
-          app.router.navigate(route);
+          app.router.navigate(withBase(route));   // ← 베이스 포함
         } // else allow default navigation
         this.closeMenu();
       });
@@ -35,7 +36,7 @@ export class Navigation {
             e.preventDefault();
             const app = window.app;
             if (app && app.router && typeof app.router.navigate === 'function') {
-              app.router.navigate('/main');
+              app.router.navigate(withBase('/main')); // ← 베이스 포함
             }
             this.closeMenu();
           }
@@ -46,7 +47,7 @@ export class Navigation {
     // Handle mobile menu toggle
     const navToggle = document.getElementById('nav-toggle');
     const navMenu = document.getElementById('nav-menu');
-    
+
     if (navToggle && navMenu) {
       navToggle.addEventListener('click', () => {
         this.toggleMenu();
@@ -64,9 +65,9 @@ export class Navigation {
   toggleMenu() {
     const navMenu = document.getElementById('nav-menu');
     const navToggle = document.getElementById('nav-toggle');
-    
+
     this.isMenuOpen = !this.isMenuOpen;
-    
+
     if (this.isMenuOpen) {
       navMenu.classList.add('active');
       navToggle.innerHTML = '✕';
@@ -79,7 +80,7 @@ export class Navigation {
   closeMenu() {
     const navMenu = document.getElementById('nav-menu');
     const navToggle = document.getElementById('nav-toggle');
-    
+
     this.isMenuOpen = false;
     navMenu.classList.remove('active');
     navToggle.innerHTML = '☰';

@@ -1,11 +1,12 @@
-import { mountTemplateUrl } from '../utils/dom.js';
+import { mountTemplateUrl, withBase } from '../utils/dom.js';
+
 // Footer Component
 export class Footer {
   async render() {
     const footerElement = document.getElementById('footer');
     if (!footerElement) return;
 
-    // Mount external template
+    // 절대경로 대신 withBase 사용
     await mountTemplateUrl('/templates/components/footer.html', footerElement);
     const yearEl = footerElement.querySelector('#footer-year');
     if (yearEl) yearEl.textContent = String(new Date().getFullYear());
@@ -21,7 +22,7 @@ export class Footer {
         const route = raw.startsWith('/') ? raw : `/${raw}`;
         if (app && app.router && typeof app.router.navigate === 'function') {
           e.preventDefault();
-          app.router.navigate(route);
+          app.router.navigate(withBase(route));  // ← 베이스 포함
         } // else allow default navigation
       });
     });
