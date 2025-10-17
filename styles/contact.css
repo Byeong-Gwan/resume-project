@@ -272,6 +272,8 @@
   transition: all var(--transition-fast);
   width: 100%;
   min-height: 56px; /* normalize value block height */
+  overflow: hidden; /* keep arrow inside rounded box */
+  box-sizing: border-box;
 }
 
 .contact-info-section .contact-link:hover {
@@ -285,7 +287,13 @@
 }
 
 .contact-link:hover .link-arrow {
-  transform: translateX(4px);
+  transform: translateX(2px); /* smaller shift to avoid clipping */
+}
+
+/* Wrap link text safely inside the bubble */
+.contact-info-section .contact-link .link-text {
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .contact-info-section .contact-value {
