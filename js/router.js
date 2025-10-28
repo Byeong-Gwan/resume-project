@@ -51,8 +51,8 @@ export class Router {
 
     // 베이스 루트(/ 또는 /resume-project)로 들어오면 홈으로
     if (isBaseRoot(path)) {
-      if (path !== withBase('/main')) {
-        this.navigate(withBase('/main'));
+      if (path !== withBase('/resume')) {
+        this.navigate(withBase('/resume'));
         return;
       }
     }
@@ -104,14 +104,14 @@ export class Router {
       }
     } else {
       console.warn('Route not found, redirecting to home');
-      if (path !== withBase('/main')) {
-        this.navigate(withBase('/main'));
+      if (path !== withBase('/resume')) {
+        this.navigate(withBase('/resume'));
       }
     }
   }
 
   updateNavigation(currentPath) {
-    const path = norm(currentPath || withBase('/main'));
+    const path = norm(currentPath || withBase('/resume'));
     const navLinks = document.querySelectorAll('.nav-item a');
     navLinks.forEach(link => {
       link.classList.remove('active');

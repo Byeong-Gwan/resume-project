@@ -36,7 +36,7 @@ export class Navigation {
             e.preventDefault();
             const app = window.app;
             if (app && app.router && typeof app.router.navigate === 'function') {
-              app.router.navigate(withBase('/main')); // ← 베이스 포함
+              app.router.navigate(withBase('/resume')); // ← 베이스 포함
             }
             this.closeMenu();
           }

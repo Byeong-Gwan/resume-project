@@ -5,73 +5,85 @@ export class ProjectsPage {
     this.projects = [
       {
         id: 1,
-        title: '티월드 보안4종 프로젝트',
-        description: '고객 보안 이슈 해결을 위한 신규 페이지 개발 프로젝트입니다. 사용자 친화적인 보안 서비스 인터페이스를 구현했습니다.',
+        title: '보안 대시보드(Customer Security Info) 구축',
+        description: '분산된 보안 기능(스팸차단, USIM 보호 등)을 단일 대시보드로 통합. 예외 처리 및 Tw.Api 연동 최적화로 VOC 60% 감소, 접근성 40% 개선.',
         category: 'web',
-        tags: ['Java', 'Spring', 'JavaScript', 'Security'],
+        tags: ['Tw.Api', 'Exception Handling', 'Dashboard', 'Security'],
         image: '🔒',
         features: [
-          '보안 이슈 진단 시스템',
-          '실시간 보안 상태 모니터링',
-          '사용자 맞춤형 보안 가이드',
-          '관리자 대시보드',
-          '보안 로그 관리'
+          '보안 데이터 통합 및 단일 UI',
+          '비동기 예외 처리 표준화',
+          '사용 이력/상태 가시화',
+          '운영 지표 대시보드'
         ],
-        techStack: ['Java', 'Spring Framework', 'JavaScript', 'HTML/CSS', 'Oracle DB'],
+        techStack: ['JavaScript', 'TypeScript', 'Tw.*', 'Express(BFF)'],
         demoUrl: '#',
         githubUrl: '#'
       },
       {
         id: 2,
-        title: '티월드 VOC 시스템 운영',
-        description: '고객 문의 및 불만 처리를 위한 VOC 시스템 운영 및 개선 업무를 담당했습니다.',
+        title: 'BFF 응답 불일치 대응(안정성 개선)',
+        description: '배열→객체 응답 변경으로 인한 forEach 오류 발생. Array.isArray 검증 도입으로 오류율 0% 및 화면 정상화 100% 달성.',
         category: 'web',
-        tags: ['VOC', 'Customer Service', 'Database'],
-        image: '📞',
+        tags: ['BFF', 'Express', 'Error Handling'],
+        image: '🧰',
         features: [
-          '고객 문의 분류 및 처리',
-          '실시간 응답 시스템',
-          '통계 및 분석 대시보드',
-          '자동 알림 시스템',
-          '고객 만족도 조사'
+          'Array.isArray() 예외 처리',
+          '무중단 롤아웃',
+          '런북/가이드 정리',
+          '회귀 테스트'
         ],
-        techStack: ['Java', 'Spring', 'Oracle DB', 'JavaScript', 'Chart.js'],
+        techStack: ['Node.js', 'Express', 'JavaScript'],
         demoUrl: '#',
         githubUrl: '#'
       },
       {
         id: 3,
-        title: '소프트웍스 웹 애플리케이션',
-        description: '소프트웍스 재직 시 개발한 웹 애플리케이션으로, 사용자 관리 및 데이터 처리 시스템을 구축했습니다.',
+        title: '파일 업로드 검증 로직 강화',
+        description: '3MB 제한 및 이미지 확장자 필터를 적용하여 대용량/비허용 업로드 이슈 해소. 업로드 오류 0% 달성.',
         category: 'web',
-        tags: ['Java', 'Spring', 'MySQL'],
-        image: '💻',
+        tags: ['Validation', 'Upload', 'Stability'],
+        image: '📤',
         features: [
-          '사용자 권한 관리',
-          '데이터 CRUD 시스템',
-          '파일 업로드/다운로드',
-          '검색 및 필터링',
-          '리포트 생성'
+          'Tw.MAX_UPLOAD_FILE_SIZE(3MB) 적용',
+          '이미지 확장자 화이트리스트',
+          '에러 메시지 및 UX 개선'
         ],
-        techStack: ['Java', 'Spring Boot', 'MySQL', 'Thymeleaf', 'Bootstrap'],
+        techStack: ['JavaScript', 'Tw.*'],
         demoUrl: '#',
         githubUrl: '#'
       },
       {
         id: 4,
         title: '개인 포트폴리오 웹사이트',
-        description: '순수 JavaScript ES6로 구현한 반응형 포트폴리오 웹사이트입니다. React 마이그레이션을 고려한 컴포넌트 기반 구조로 설계했습니다.',
+        description: 'Vanilla JS로 구현한 반응형 포트폴리오. React 마이그레이션을 고려한 컴포넌트 기반 설계.',
         category: 'ui',
         tags: ['JavaScript', 'HTML', 'CSS'],
         image: '💼',
         features: [
           '컴포넌트 기반 구조',
-          'SPA 라우팅 시스템',
+          'SPA 라우팅',
           '반응형 디자인',
-          '부드러운 애니메이션',
-          '폼 검증 시스템'
+          '부드러운 애니메이션'
         ],
         techStack: ['Vanilla JavaScript', 'HTML5', 'CSS3', 'ES6 Modules'],
+        demoUrl: '#',
+        githubUrl: '#'
+      },
+      {
+        id: 5,
+        title: 'TechBoard (Q&A 게시판)',
+        description: 'Spring Boot 3 + PostgreSQL 기반의 질문/답변 게시판. CRUD, Pagination, DTO 검증, Flyway, Docker Compose 구성.',
+        category: 'web',
+        tags: ['Spring Boot', 'PostgreSQL', 'MyBatis', 'Thymeleaf'],
+        image: '🗂️',
+        features: [
+          'Q&A CRUD 및 페이지네이션',
+          '유효성 검증(DTO)',
+          'DB 마이그레이션(Flyway)',
+          'Docker Compose 로컬 환경'
+        ],
+        techStack: ['Java 17', 'Spring Boot 3', 'PostgreSQL', 'MyBatis', 'Thymeleaf', 'Docker Compose'],
         demoUrl: '#',
         githubUrl: '#'
       }

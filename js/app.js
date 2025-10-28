@@ -6,6 +6,7 @@ import { HomePage } from './pages/HomePage.js';
 import { ProjectsPage } from './pages/ProjectsPage.js';
 import { ContactPage } from './pages/ContactPage.js';
 import { AboutPage } from './pages/AboutPage.js';
+import { ResumePage } from './pages/ResumePage.js';
 
 /* ──────────────────────────────────────────────────────────────
    Base path support for GitHub Pages project pages
@@ -66,13 +67,13 @@ class App {
         // Clean the query string after navigation
         window.history.replaceState(null, '', withBase(target));
       } else if (isAtBaseRoot()) {
-        // Ensure default route is /main (BASE 포함)
-        this.router.navigate(withBase('/main'));
+        // Ensure default route is /resume (BASE 포함)
+        this.router.navigate(withBase('/resume'));
       }
     } catch (e) {
       // Fallback to default route if URL parsing fails
       if (isAtBaseRoot()) {
-        this.router.navigate(withBase('/main'));
+        this.router.navigate(withBase('/resume'));
       }
     }
 
@@ -85,6 +86,7 @@ class App {
 
   setupRoutes() {
     // 라우트 등록 시 절대 경로 앞에 BASE를 붙여줌
+    this.router.addRoute(withBase('/resume'),   () => new ResumePage());
     this.router.addRoute(withBase('/main'),     () => new HomePage());
     this.router.addRoute(withBase('/about'),    () => new AboutPage());
     this.router.addRoute(withBase('/projects'), () => new ProjectsPage());
