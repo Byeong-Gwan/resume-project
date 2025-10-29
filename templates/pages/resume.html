@@ -5,29 +5,44 @@
       <span>✉️ <a href="mailto:ansd_my3073@naver.com">ansd_my3073@naver.com</a></span>
       <span>🐙 <a href="https://github.com/byeong-gwan" target="_blank" rel="noopener">github.com/byeong-gwan</a></span>
       <span>📝 <a href="https://byeong-gwan.github.io" target="_blank" rel="noopener">byeong-gwan.github.io</a></span>
+      <span>🏠 경기도 화성시</span>
     </div>
   </header>
 
-  <p class="summary">T world 모바일 웹 운영/신규 개발을 담당하며 예외 처리와 대시보드 구축으로 안정성과 가시성을 개선한 프론트엔드 개발자입니다.</p>
+  <p class="summary">
+    운영 환경에서도 끊임없이 개선점을 찾는 프론트엔드 개발자입니다. T world 모바일 플랫폼에서 대규모 사용자 환경의 안정적인 운영과
+    데이터 구조 불일치, API 예외, 파일 업로드 오류, 보안 서비스 통합 등 다양한 문제를 직접 해결하며 서비스 품질을 개선했습니다.
+  </p>
 
   <section class="section">
     <h2>경력</h2>
     <div class="exp-item">
       <div class="exp-header">
-        <div class="exp-title">Softworks (SKT T world Front-End Team) · Front-End Developer</div>
+        <div class="exp-title">Softworks (SK Telecom T world Front-End Team) · Front-End Developer</div>
         <div class="exp-period">2022.10 – 현재</div>
       </div>
+      <h3 class="proj-title" style="margin:6px 0 4px;">📍 주요 업무 및 역할</h3>
       <ul class="bullets">
-        <li>BFF API 연동 및 예외 처리 로직 개발, 무중단 에러 핸들링 적용</li>
-        <li>DataDog/내부 API 로그 기반 오류 패턴 분석 및 조치, 런북 기준 정립</li>
-        <li>공통 Helper 통합·중복 API 호출 정리로 유지보수성 향상</li>
-        <li>보안 대시보드 신규 개발(UI/데이터 구조 설계)</li>
+        <li>BFF API 연동 및 예외 처리 로직 개선: BFF_05_0047, BFF_05_0222, BFF_07_0131 등 다수 API 연동 담당</li>
+        <li>data.forEach TypeError 이슈 해결: Array.isArray() 기반 검증 및 단일 객체 대응 처리</li>
+        <li>Promise 기반 예외 처리 모듈 분리로 배포 중단 없이 에러 대응 구조 확립</li>
+        <li>DataDog/내부 로그로 응답 실패율·Timeout 등 상위 패턴 도출, 런북(원인→조치→테스트) 정립</li>
+        <li>파일 업로드 검증 강화: 3MB 제한 및 확장자 화이트리스트, 총합 용량 검사 로직 보완</li>
+        <li>보안 대시보드 신규 개발: 분산 기능 단일 UI 통합, 비동기 병렬 호출·로딩 상태 관리 설계</li>
+        <li>공통 Helper로 API 호출 로직 단일화(CommonHelper.requestApi), 중복 호출 제거</li>
       </ul>
+      <h3 class="proj-title" style="margin:8px 0 4px;">📈 핵심 성과 요약</h3>
       <ul class="bullets impact">
-        <li>요금조회 API 예외 처리 개선으로 오류 이탈률 15% 감소</li>
-        <li>중복 API 호출 20% 감소</li>
-        <li>2024년 배포 이후 중대 장애 0건</li>
-        <li>보안 관련 서비스 접근성 40% 개선, VOC 60% 감소</li>
+        <li>요금조회 API 화면 오류율 11.8% → 9.9% (약 -15%)</li>
+        <li>QA/온콜 대응 시간 평균 10분 → 7분 (-30%)</li>
+        <li>보안 서비스 접근 단계 5 → 3 (-40%)</li>
+        <li>보안 관련 VOC 월 50건 → 20건 (-60%)</li>
+      </ul>
+      <h3 class="proj-title" style="margin:8px 0 4px;">🧠 문제 해결 사례</h3>
+      <ul class="bullets">
+        <li>[1] BFF 응답 형태 불일치: Array.isArray() 분기 및 Fallback 구조로 서비스 오류율 0%, 이탈 세션 15% 감소</li>
+        <li>[2] 파일 업로드 안정성: Tw.MAX_UPLOAD_FILE_SIZE(3MB)·확장자 검사·총용량 검증으로 비정상 업로드 0%, VOC 전면 제거</li>
+        <li>[3] 보안 대시보드: 단일 JSON 응답·병렬 로딩·경로 축소로 접근성 40% 개선, VOC 60% 감소</li>
       </ul>
       <div class="stack">JavaScript, TypeScript, Tw.*(Tw.Api/Popup/CommonHelper/Navigation), Express(BFF), DataDog, Jenkins, Jira/Confluence, Slack</div>
     </div>
@@ -56,15 +71,21 @@
   <section class="section two-col">
     <div>
       <h2>기술</h2>
-      <div class="skills-inline">
-        JavaScript/TypeScript · Tw.* · Express(BFF) · DataDog · Git/Jenkins · Jira/Confluence/Slack · IntelliJ · Chrome DevTools
-      </div>
+      <ul class="bullets">
+        <li><strong>언어</strong>: JavaScript (ES3~ES6), TypeScript</li>
+        <li><strong>FE 환경</strong>: 내부 Tw.* 모듈 (Tw.Api, Tw.Popup, Tw.CommonHelper 등)</li>
+        <li><strong>서버/연동</strong>: Node.js (Express BFF), REST API, JSON 응답 처리</li>
+        <li><strong>운영/모니터링</strong>: DataDog, 내부 로그 대시보드</li>
+        <li><strong>협업 툴</strong>: Jira, Confluence, Slack, IntelliJ, Chrome DevTools</li>
+        <li><strong>개인 프로젝트</strong>: Spring Boot 3, Java 17, PostgreSQL, MyBatis, Docker Compose</li>
+      </ul>
     </div>
     <div>
       <h2>개인 프로젝트</h2>
       <div class="proj-mini">
         <div class="proj-title">TechBoard (Q&A 게시판) · 2024.07 – 진행</div>
-        <div class="desc">Spring Boot 3, Java 17, PostgreSQL, MyBatis, Thymeleaf, Docker Compose · CRUD, Pagination, DTO 검증, Flyway 마이그레이션</div>
+        <div class="desc">Spring Boot 3, Java 17, PostgreSQL, MyBatis, Thymeleaf, Docker Compose, Flyway · CRUD, Pagination, Validation, 예외 처리</div>
+        <div class="desc">DTO→Service→Mapper 계층 분리, V1__init.sql 마이그레이션, Docker 기반 배포 테스트 자동화</div>
       </div>
     </div>
   </section>
@@ -79,8 +100,28 @@
     <div>
       <h2>활동</h2>
       <ul class="bullets compact">
-        <li>내부 React 스터디/HTTP 강의 정리</li>
-        <li>GitHub 블로그 운영(일일 학습 기록)</li>
+        <li>“모던 자바스크립트 딥다이브”, “HTTP 완벽가이드” 스터디</li>
+        <li>사내 React 스터디, Docker/Kubernetes 사전 학습 참여</li>
+        <li>GitHub 블로그 운영(알고리즘/JS 로직 정리, 실무 로직 분석 포스팅)</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>React 미니프로젝트</h2>
+    <div class="proj-item">
+      <div class="proj-title"><a href="https://github.com/Byeong-Gwan/react-study" target="_blank" rel="noopener">react-study</a></div>
+      <ul class="bullets">
+        <li>컴포넌트 단위 설계와 상태 관리 기초(Hooks 중심) 연습</li>
+        <li>이벤트 처리, props/state 흐름, 재사용 가능한 UI 패턴 정리</li>
+      </ul>
+    </div>
+    <div class="proj-item">
+      <div class="proj-title"><a href="https://github.com/Byeong-Gwan/hnm-react-router-pracice" target="_blank" rel="noopener">hnm-react-router-pracice</a></div>
+      <ul class="bullets">
+        <li>React Router 기반 라우팅 패턴 실습(BrowserRouter, Routes/Route)</li>
+        <li>기본 네비게이션 및 파라미터 처리(useNavigate, useParams) 연습</li>
+        <li>Vite 개발 환경에서의 라우터 구성 및 코드 구조화</li>
       </ul>
     </div>
   </section>
