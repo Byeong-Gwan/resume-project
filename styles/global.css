@@ -118,6 +118,51 @@ img, video, canvas, svg {
   }
 }
 
+/* PDF Viewer styles */
+.pdf-viewer-section .pdf-actions {
+  display: flex;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+.pdf-viewer-section .pdf-embed-wrap {
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  height: 80vh;
+  background: #fff;
+}
+.pdf-viewer-section .pdf-iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #fff;
+}
+.pdf-viewer-section .pdf-hint { color: var(--text-secondary); margin-top: var(--spacing-sm); }
+
+/* Print-safe adjustments */
+@media print {
+  html, body, #app, #main-content {
+    background: #fff !important;
+    color: #000 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+    background-image: none !important;
+  }
+  a, a:visited { color: #000 !important; text-decoration: underline !important; }
+  #navigation, #footer { display: none !important; }
+
+  /* Avoid awkward page breaks inside blocks */
+  .resume-page, .section, .exp-item, .proj-item, .proj-mini, .bullets {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  h1, h2, h3 { break-after: avoid; }
+}
+
 /* Very small devices: slightly reduce but still keep good gutters */
 @media (max-width: 380px) {
   .container {
@@ -180,6 +225,20 @@ img, video, canvas, svg {
   color: var(--primary-color);
   background: var(--background-alt);
 }
+
+/* Resume header contact chips */
+.contacts { display: flex; flex-wrap: wrap; gap: var(--spacing-sm); margin-top: var(--spacing-sm); }
+.contacts .chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  background: var(--background);
+  color: var(--text-primary);
+  font-size: var(--font-size-sm);
+}
+.contact-location { margin-top: 6px; color: var(--text-secondary); font-size: var(--font-size-sm); }
 
 /* Remove global underline to avoid full-width purple line under navbar */
 

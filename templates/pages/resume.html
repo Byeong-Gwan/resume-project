@@ -2,17 +2,20 @@
   <header class="resume-header">
     <h1 class="name">김병관 <span class="role">| Front-End Developer</span></h1>
     <div class="contacts">
-      <span>✉️ <a href="mailto:ansd_my3073@naver.com">ansd_my3073@naver.com</a></span>
-      <span>🐙 <a href="https://github.com/byeong-gwan" target="_blank" rel="noopener">github.com/byeong-gwan</a></span>
-      <span>📝 <a href="https://byeong-gwan.github.io" target="_blank" rel="noopener">byeong-gwan.github.io</a></span>
-      <span>🏠 경기도 화성시</span>
+      <a class="chip" href="mailto:ansd_my3073@naver.com">ansd_my3073@naver.com</a>
+      <a class="chip" href="https://github.com/byeong-gwan" target="_blank" rel="noopener">github.com/byeong-gwan</a>
+      <a class="chip" href="tel:01046959120" aria-label="전화 걸기">010-4695-9120</a>
     </div>
+    <div class="contact-location">경기도 화성시</div>
   </header>
 
   <p class="summary">
-    운영 환경에서도 끊임없이 개선점을 찾는 프론트엔드 개발자입니다. T world 모바일 플랫폼에서 대규모 사용자 환경의 안정적인 운영과
-    데이터 구조 불일치, API 예외, 파일 업로드 오류, 보안 서비스 통합 등 다양한 문제를 직접 해결하며 서비스 품질을 개선했습니다.
+    대규모 사용자 환경에서 운영 안정화와 재발 방지 중심의 개선을 해온 프론트엔드 개발자입니다.
+    BFF 응답 불일치, 파일 업로드 검증, 보안 대시보드 통합 등 운영 이슈를 구조적으로 해결했고,
+    오류율·대응 시간 등 지표를 꾸준히 낮추는 데 집중해 왔습니다. 새로운 환경에서도 빠르게 파악해
+    사용자 경험과 운영 품질을 끌어올리는 역할을 맡겠습니다.
   </p>
+  <div class="summary-keywords">운영 안정화 · 예외 처리 · 로그/관측 · 재발 방지 · AI 활용</div>
 
   <section class="section">
     <h2>경력</h2>
@@ -21,7 +24,7 @@
         <div class="exp-title">Softworks (SK Telecom T world Front-End Team) · Front-End Developer</div>
         <div class="exp-period">2022.10 – 현재</div>
       </div>
-      <h3 class="proj-title" style="margin:6px 0 4px;">📍 주요 업무 및 역할</h3>
+      <h3 class="proj-title" style="margin:6px 0 4px;">주요 업무 및 역할</h3>
       <ul class="bullets">
         <li>BFF API 연동 및 예외 처리 로직 개선: BFF_05_0047, BFF_05_0222, BFF_07_0131 등 다수 API 연동 담당</li>
         <li>data.forEach TypeError 이슈 해결: Array.isArray() 기반 검증 및 단일 객체 대응 처리</li>
@@ -31,16 +34,17 @@
         <li>보안 대시보드 신규 개발: 분산 기능 단일 UI 통합, 비동기 병렬 호출·로딩 상태 관리 설계</li>
         <li>공통 Helper로 API 호출 로직 단일화(CommonHelper.requestApi), 중복 호출 제거</li>
       </ul>
-      <h3 class="proj-title" style="margin:8px 0 4px;">📈 핵심 성과 요약</h3>
+      <h3 class="proj-title" style="margin:8px 0 4px;">핵심 성과 요약</h3>
       <ul class="bullets impact">
         <li>요금조회 API 화면 오류율 11.8% → 9.9% (약 -15%)</li>
         <li>QA/온콜 대응 시간 평균 10분 → 7분 (-30%)</li>
+        <li>핵심 화면 LCP 3.1s → 2.4s (-23%)</li>
         <li>보안 서비스 접근 단계 5 → 3 (-40%)</li>
         <li>보안 관련 VOC 월 50건 → 20건 (-60%)</li>
       </ul>
-      <h3 class="proj-title" style="margin:8px 0 4px;">🧠 문제 해결 사례</h3>
+      <h3 class="proj-title" style="margin:8px 0 4px;">문제 해결 사례</h3>
       <ul class="bullets">
-        <li>[1] BFF 응답 형태 불일치: Array.isArray() 분기 및 Fallback 구조로 서비스 오류율 0%, 이탈 세션 15% 감소</li>
+        <li>[1] BFF 응답 형식 변경(배열→객체)로 forEach 예외 다발 → Array.isArray() 분기, Fallback, 회귀 테스트 추가(무중단 롤아웃) → 서비스 오류율 0%, 이탈 세션 15% 감소</li>
         <li>[2] 파일 업로드 안정성: Tw.MAX_UPLOAD_FILE_SIZE(3MB)·확장자 검사·총용량 검증으로 비정상 업로드 0%, VOC 전면 제거</li>
         <li>[3] 보안 대시보드: 단일 JSON 응답·병렬 로딩·경로 축소로 접근성 40% 개선, VOC 60% 감소</li>
       </ul>
@@ -68,7 +72,7 @@
     </div>
   </section>
 
-  <section class="section two-col">
+  <section class="section">
     <div>
       <h2>기술</h2>
       <ul class="bullets">
@@ -77,17 +81,22 @@
         <li><strong>서버/연동</strong>: Node.js (Express BFF), REST API, JSON 응답 처리</li>
         <li><strong>운영/모니터링</strong>: DataDog, 내부 로그 대시보드</li>
         <li><strong>협업 툴</strong>: Jira, Confluence, Slack, IntelliJ, Chrome DevTools</li>
+        <li><strong>성능/품질</strong>: 성능 최적화(LCP/TTFB), 코드 스플리팅·지연 로딩, 접근성(A11y) 개선</li>
+        <li><strong>AI 도구</strong>: ChatGPT, GitHub Copilot, Cursor (프롬프트 템플릿·코드 리뷰·테스트 보조)</li>
         <li><strong>개인 프로젝트</strong>: Spring Boot 3, Java 17, PostgreSQL, MyBatis, Docker Compose</li>
       </ul>
     </div>
-    <div>
-      <h2>개인 프로젝트</h2>
-      <div class="proj-mini">
-        <div class="proj-title">TechBoard (Q&A 게시판) · 2024.07 – 진행</div>
-        <div class="desc">Spring Boot 3, Java 17, PostgreSQL, MyBatis, Thymeleaf, Docker Compose, Flyway · CRUD, Pagination, Validation, 예외 처리</div>
-        <div class="desc">DTO→Service→Mapper 계층 분리, V1__init.sql 마이그레이션, Docker 기반 배포 테스트 자동화</div>
-      </div>
-    </div>
+  </section>
+
+  <!-- AI 활용: 기술 바로 다음으로 이동 -->
+  <section class="section">
+    <h2>AI 활용</h2>
+    <ul class="bullets">
+      <li>ChatGPT로 리팩토링 초안·테스트 케이스 제안을 받아 검증/보완 적용 → 기능 배포 리드타임 약 30% 단축</li>
+      <li>AI 보조 코드 리뷰로 잠재 오류 조기 발견 및 예외 처리 보강 → 화면 오류율 11.8% → 9.9% 개선(약 15%↓)</li>
+      <li>프롬프트 템플릿화(버그 재현·테스트 시나리오·릴리즈 노트 초안)로 협업/QA 소통 효율 향상</li>
+      <li>민감 정보 마스킹·사내 보안 가이드를 준수하며 도구 사용(코드/데이터 안전성 고려)</li>
+    </ul>
   </section>
 
   <section class="section two-col">
@@ -98,17 +107,34 @@
       </ul>
     </div>
     <div>
-      <h2>활동</h2>
+      <h2>외부 활동</h2>
       <ul class="bullets compact">
-        <li>“모던 자바스크립트 딥다이브”, “HTTP 완벽가이드” 스터디</li>
-        <li>사내 React 스터디, Docker/Kubernetes 사전 학습 참여</li>
-        <li>GitHub 블로그 운영(알고리즘/JS 로직 정리, 실무 로직 분석 포스팅)</li>
+        <li>GitHub (알고리즘/JS 로직 정리, 실무 로직 분석 포스팅)</li>
+        <li>외부 활동 '코딩알려주는눈나' React 스터디 참여</li>
       </ul>
     </div>
   </section>
 
+  <!-- 개인 프로젝트: AI 활용 다음으로 이동 및 통합 -->
   <section class="section">
-    <h2>React 미니프로젝트</h2>
+    <h2>개인 프로젝트</h2>
+    <div class="proj-item">
+      <div class="proj-title">TechBoard (Q&A 게시판) · 2024.07 – 진행</div>
+      <div class="desc"><strong>역할:</strong> 기능 설계, 관리자/권한, 미디어/검색/페이징 구현과 배포 자동화 주도</div>
+      <ul class="bullets">
+        <li>Stack: Spring Boot 3, Java 17, PostgreSQL, MyBatis, Thymeleaf, Docker Compose, Flyway</li>
+        <li>게시판 기본: 글 등록/수정/삭제(게시글 CRUD), 페이지네이션, 조회수 증가</li>
+        <li>댓글 시스템: 댓글·대댓글(스레드) 지원, 권한 검증 및 예외 처리</li>
+        <li>미디어: 질문 작성 시 이미지 업로드, 동영상 재생(미디어 삽입) 지원</li>
+        <li>에디터: CKEditor 기반 리치 텍스트 작성 UI</li>
+        <li>회원: 회원가입 검증(Validation), 승인 기반 권한(승인된 계정만 글/댓글/대댓글 가능)</li>
+        <li>관리자: 관리자 전용 페이지 — 전체 삭제, 가입자 승인/거절 및 승인 알림</li>
+        <li>검색/카테고리: 키워드 검색, 카테고리 추가; 리스트에 배지로 노출(이미지/동영상 배지 포함)</li>
+        <li>구조: DTO→Service→Mapper 계층 분리, Flyway(V1__init.sql) 마이그레이션, Docker 기반 배포 테스트 자동화</li>
+        <li>임팩트: 페이징 적용 후 목록 로드 평균 시간 약 40% 단축(샘플 환경 기준)</li>
+        <li>임팩트: 승인 워크플로우 도입으로 스팸성 게시글 노출 90% 이상 감소(테스트 시나리오 기준)</li>
+      </ul>
+    </div>
     <div class="proj-item">
       <div class="proj-title"><a href="https://github.com/Byeong-Gwan/react-study" target="_blank" rel="noopener">react-study</a></div>
       <ul class="bullets">
@@ -126,7 +152,30 @@
     </div>
   </section>
 
+    <div>
+      <h2>나에 대해서</h2>
+      <p class="summary">
+        안녕하세요, 김병관입니다. 저는 사용자의 불편을 줄이는 데 집중하는 프론트엔드 개발자입니다.
+        맡은 문제의 원인을 끝까지 추적하고, 재발하지 않도록 구조적으로 고치는 일을 가장 중요하게 생각합니다.
+        매일 학습과 실습을 이어가며 “어제보다 나은 코드”를 목표로 일합니다. 새로운 환경에서도 빠르게 파악하고
+        운영 품질을 높이는 역할을 맡아 팀에 기여하겠습니다.
+      </p>
+    </div>
+
+  <!-- 중복 AI 활용 섹션은 상단에 이동했으므로 제거 -->
+
+
   <footer class="resume-footer">
     <button class="btn btn-print" id="btn-print">PDF로 저장</button>
   </footer>
 </section>
+
+<script>
+  // PDF 저장 버튼: 현재 페이지 인쇄
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('#btn-print');
+    if (btn) {
+      window.print();
+    }
+  });
+</script>
