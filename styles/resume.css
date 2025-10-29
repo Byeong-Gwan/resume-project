@@ -10,39 +10,40 @@
 .resume-page{
   max-width:var(--resume-max);
   margin:16px auto;
-  padding:28px 28px;
+  padding:32px 32px;
   color:var(--text);
   background:#fff;
   border:1px solid var(--border);
   border-radius:12px;
   box-shadow:0 6px 18px rgba(15,23,42,.06);
+  line-height:1.55;
 }
-.resume-header{display:flex;flex-direction:column;gap:10px;margin-bottom:6px;border-bottom:1px solid var(--border);padding-bottom:8px}
+.resume-header{display:flex;flex-direction:column;gap:12px;margin-bottom:10px;border-bottom:1px solid var(--border);padding-bottom:10px}
 .resume-header .name{font-size:28px;margin:0;font-weight:800;letter-spacing:-.2px}
 .resume-header .role{font-weight:600;color:#475569}
-.contacts{display:flex;gap:10px;flex-wrap:wrap;font-size:13px;color:#334155}
+.contacts{display:flex;gap:12px;flex-wrap:wrap;font-size:13px;color:#334155}
 .contacts a{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border:1px solid var(--border);border-radius:999px;background:var(--bg);color:var(--text);text-decoration:none}
 .contacts a:hover{border-color:var(--accent);box-shadow:0 0 0 2px rgba(59,130,246,.12)}
-.summary{margin:10px 0 14px;color:#334155;font-size:13px;line-height:1.5}
-.section{margin:12px 0}
-.section + .section{border-top:1px solid var(--border);padding-top:12px}
-.section h2{font-size:15px;margin:0 0 8px;color:#0f172a;font-weight:700;position:relative}
+.summary{margin:14px 0 18px;color:#334155;font-size:13.5px;line-height:1.6}
+.section{margin:18px 0}
+.section + .section{border-top:1px solid var(--border);padding-top:16px}
+.section h2{font-size:15.5px;margin:0 0 10px;color:#0f172a;font-weight:700;position:relative}
 .section h2::after{content:"";display:block;height:2px;width:28px;background:var(--accent);margin-top:6px;border-radius:2px}
-.exp-item{margin-bottom:12px}
+.exp-item{margin-bottom:14px}
 .exp-header{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
 .exp-title{font-weight:700}
 .exp-period{color:var(--muted);font-size:12px;white-space:nowrap}
-.bullets{margin:6px 0 0 0;padding:0;list-style:none}
-.bullets li{position:relative;padding-left:16px;margin:3px 0;font-size:13px;line-height:1.5}
+.bullets{margin:8px 0 0 0;padding:0;list-style:none}
+.bullets li{position:relative;padding-left:16px;margin:5px 0;font-size:13.2px;line-height:1.55}
 .bullets li::before{content:"•";position:absolute;left:0;top:0;color:var(--accent)}
 .bullets.impact li{font-weight:600}
-.stack{margin-top:6px;font-size:12px;color:#475569}
-.two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.stack{margin-top:8px;font-size:12.5px;color:#475569}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:22px}
 .skills-inline{font-size:13px;color:#334155}
-.proj-item{margin-bottom:8px}
+.proj-item{margin-bottom:10px}
 .proj-title{font-weight:700}
 .bullets.compact li{font-size:12px}
-.resume-footer{display:flex;justify-content:flex-end;margin-top:12px}
+.resume-footer{display:flex;justify-content:flex-end;margin-top:16px}
 .btn-print{padding:6px 12px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:#0f172a;cursor:pointer}
 .btn-print:hover{border-color:var(--accent);box-shadow:0 0 0 2px rgba(59,130,246,.12)}
 
@@ -57,7 +58,10 @@
   @page{size:A4;margin:10mm}
   body{background:white}
   nav,#footer,.btn-print{display:none!important}
-  .resume-page{max-width:100%;margin:0;padding:0;border:none;box-shadow:none}
-  .section{margin:6px 0}
+  .resume-page{max-width:100%;margin:0;padding:0 2mm;border:none;box-shadow:none;line-height:1.5;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .section{margin:8px 0;break-inside:avoid}
+  .section h2{page-break-after:avoid;break-after:avoid}
+  .exp-item,.proj-item,.proj-mini,.resume-header{break-inside:avoid;page-break-inside:avoid}
+  .two-col{grid-template-columns:1fr 1fr;gap:14px}
   .bullets li{font-size:12px}
 }
