@@ -3,51 +3,27 @@ import { mountTemplateUrl } from '../utils/dom.js';
 export class HomePage {
   constructor() {
     this.skills = [
-      {
-        name: 'JavaScript',
-        icon: 'JS',
-        description: 'ES6+, DOM 조작, 비동기 처리 및 웹 애플리케이션 개발'
-      },
-      {
-        name: 'Java',
-        icon: 'J',
-        description: 'Spring Framework, 백엔드 API 개발 및 시스템 구축'
-      },
-      {
-        name: 'VOC 시스템',
-        icon: 'V',
-        description: '고객 문의 처리, 운영 업무 및 서비스 개선'
-      },
-      {
-        name: '보안 시스템',
-        icon: 'S',
-        description: '보안4종 프로젝트, 고객 보안 이슈 해결 페이지 개발'
-      },
-      {
-        name: 'Database',
-        icon: 'DB',
-        description: 'SQL, 데이터 관리 및 운영 업무 지원'
-      },
-      {
-        name: 'HTML/CSS',
-        icon: 'H',
-        description: '반응형 웹 디자인, 사용자 인터페이스 구현'
-      }
+      { name: 'JavaScript/TypeScript', icon: 'JS', description: 'ES3~ES6, TypeScript 기반 프론트엔드 개발' },
+      { name: 'Tw.* 모듈', icon: 'Tw', description: 'Tw.Api · Tw.Popup · Tw.CommonHelper · Tw.Navigation 활용' },
+      { name: 'BFF(Express)', icon: 'B', description: 'Node.js Express BFF 연동 및 예외 처리' },
+      { name: 'Monitoring', icon: 'M', description: 'DataDog · 내부 API 로그 대시보드로 오류 패턴 분석' },
+      { name: 'CI/CD & 협업', icon: 'C', description: 'Git · Jenkins · Jira · Confluence · Slack' },
+      { name: 'Tools', icon: 'T', description: 'IntelliJ · Chrome DevTools · 접근성/성능 점검' }
     ];
 
     this.experience = [
       {
-        period: '2022 - 현재',
-        title: '개발자',
-        company: '티월드 (T World)',
-        description: 'VOC 시스템 운영 및 고객 서비스 개선 업무를 담당하며, 현재 보안4종 프로젝트를 통해 고객 보안 이슈 해결을 위한 신규 페이지를 개발하고 있습니다.',
-        skills: ['Java', 'Spring', 'JavaScript', 'Oracle DB', 'VOC 시스템', '보안']
+        period: '2022.10 - 현재',
+        title: 'Front-End Developer',
+        company: 'Softworks (SKT T world Front-End Team)',
+        description: 'T world 모바일 웹 운영/신규 개발. 예외 처리·대시보드 구축으로 안정성과 가시성 개선(오류 이탈률 -15%, 중복 호출 -20%).',
+        skills: ['JavaScript', 'TypeScript', 'Tw.*', 'Express(BFF)', 'DataDog', 'Jenkins']
       },
       {
         period: '2021 - 2022',
-        title: '개발자',
+        title: 'Developer',
         company: '소프트웍스',
-        description: '웹 애플리케이션 개발 및 유지보수 업무를 담당했습니다. 사용자 관리 시스템과 데이터 처리 시스템을 구축하며 개발 경험을 쌓았습니다.',
+        description: '웹 애플리케이션 개발 및 유지보수. 사용자/데이터 관리 기능 구현.',
         skills: ['Java', 'Spring Boot', 'MySQL', 'JavaScript', 'HTML/CSS']
       }
     ];

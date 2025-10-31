@@ -51,8 +51,8 @@ export class Router {
 
     // 베이스 루트(/ 또는 /resume-project)로 들어오면 홈으로
     if (isBaseRoot(path)) {
-      if (path !== withBase('/main')) {
-        this.navigate(withBase('/main'));
+      if (path !== withBase('/resume')) {
+        this.navigate(withBase('/resume'));
         return;
       }
     }
@@ -72,16 +72,46 @@ export class Router {
 
       // Update navigation active state
       this.updateNavigation(path);
+
+      // Reset scroll position to top after route change
+      try {
+        if ('scrollRestoration' in history) {
+          history.scrollRestoration = 'manual';
+        }
+      } catch (e) {}
+
+      const scrollToTop = () => window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+      // Use rAF to ensure DOM update completed
+      if (window.requestAnimationFrame) {
+        requestAnimationFrame(scrollToTop);
+      } else {
+        setTimeout(scrollToTop, 0);
+      }
+
+      // Focus main content for accessibility without scrolling
+      const main = document.getElementById('main-content');
+      if (main) {
+        main.setAttribute('tabindex', '-1');
+        if (main.focus) {
+          try { main.focus({ preventScroll: true }); } catch (e) { main.focus(); }
+        }
+      }
+
+      // Close mobile nav menu if open
+      const navMenu = document.getElementById('nav-menu');
+      if (navMenu && navMenu.classList) {
+        navMenu.classList.remove('active');
+      }
     } else {
       console.warn('Route not found, redirecting to home');
-      if (path !== withBase('/main')) {
-        this.navigate(withBase('/main'));
+      if (path !== withBase('/resume')) {
+        this.navigate(withBase('/resume'));
       }
     }
   }
 
   updateNavigation(currentPath) {
-    const path = norm(currentPath || withBase('/main'));
+    const path = norm(currentPath || withBase('/resume'));
     const navLinks = document.querySelectorAll('.nav-item a');
     navLinks.forEach(link => {
       link.classList.remove('active');

@@ -14,9 +14,9 @@ export class ContactPage {
       {
         icon: '📧',
         title: '이메일',
-        value: 'ansd43@gmail.com',
-        link: 'mailto:ansd43@gmail.com',
-        copyValue: 'ansd43@gmail.com'
+        value: 'ansd_my3073@naver.com',
+        link: 'mailto:ansd_my3073@naver.com',
+        copyValue: 'ansd_my3073@naver.com'
       },
       {
         icon: '💼',
