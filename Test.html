@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>김병관 - 프론트엔드 개발자</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 15mm;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Malgun Gothic', sans-serif;
+            font-size: 10pt;
+            line-height: 1.6;
+            color: #333;
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+        }
+        
+        .header {
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .header h1 {
+            font-size: 24pt;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .header .role {
+            font-size: 12pt;
+            color: #7f8c8d;
+            margin-bottom: 10px;
+        }
+        
+        .contact {
+            font-size: 9pt;
+            color: #555;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .contact-item {
+            display: inline-block;
+        }
+        
+        .summary {
+            background: #f8f9fa;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-left: 4px solid #2c3e50;
+        }
+        
+        .summary p {
+            font-size: 10pt;
+            line-height: 1.8;
+        }
+        
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .metric-item {
+            background: #ecf0f1;
+            padding: 10px;
+            text-align: center;
+            border-radius: 3px;
+        }
+        
+        .metric-value {
+            font-size: 14pt;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .metric-label {
+            font-size: 8pt;
+            color: #7f8c8d;
+            margin-top: 3px;
+        }
+        
+        .section {
+            margin-bottom: 25px;
+        }
+        
+        .section-title {
+            font-size: 14pt;
+            font-weight: bold;
+            color: #2c3e50;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-bottom: 12px;
+        }
+        
+        .experience-item {
+            margin-bottom: 20px;
+        }
+        
+        .company-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
+        }
+        
+        .company-name {
+            font-size: 11pt;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .period {
+            font-size: 9pt;
+            color: #7f8c8d;
+        }
+        
+        .role-title {
+            font-size: 10pt;
+            color: #555;
+            margin-bottom: 10px;
+        }
+        
+        .project {
+            margin-bottom: 15px;
+            padding-left: 15px;
+            border-left: 2px solid #ecf0f1;
+        }
+        
+        .project-title {
+            font-weight: bold;
+            font-size: 10pt;
+            margin-bottom: 5px;
+        }
+        
+        .project-description {
+            font-size: 9pt;
+            color: #555;
+            margin-bottom: 5px;
+        }
+        
+        .project-tech {
+            font-size: 9pt;
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 5px;
+        }
+        
+        .project-results {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .project-results li {
+            font-size: 9pt;
+            margin-bottom: 3px;
+            padding-left: 15px;
+            position: relative;
+        }
+        
+        .project-results li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 10px;
+            font-size: 9pt;
+        }
+        
+        .skill-category {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .skill-list {
+            color: #555;
+        }
+        
+        .personal-project {
+            margin-bottom: 15px;
+            padding: 12px;
+            background: #f8f9fa;
+            border-radius: 3px;
+        }
+        
+        .personal-project-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+        
+        .personal-project-title {
+            font-weight: bold;
+            font-size: 11pt;
+            color: #2c3e50;
+        }
+        
+        .feature-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 5px;
+        }
+        
+        .feature-list li {
+            font-size: 9pt;
+            padding-left: 15px;
+            position: relative;
+        }
+        
+        .feature-list li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #2c3e50;
+        }
+        
+        .certification {
+            display: inline-block;
+            background: #ecf0f1;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-size: 9pt;
+            margin-right: 10px;
+        }
+        
+        @media print {
+            body {
+                padding: 0;
+            }
+            
+            .page-break {
+                page-break-after: always;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>김병관</h1>
+        <div class="role">Front-End Developer</div>
+        <div class="contact">
+            <span class="contact-item">ansd_my3073@naver.com</span>
+            <a class="contact-item" href="https://github.com/byeong-gwan">github.com/byeong-gwan</a>
+            <span class="contact-item">010-4695-9120</span>
+            <span class="contact-item">경기도 화성시</span>
+        </div>
+    </div>
+
+    <div class="summary">
+        <p>3년 2개월 차 프론트엔드 개발자. 월 수백만 사용자 서비스에서 오류율 15% 감소, 대응시간 30% 단축, VOC 60% 감소 개선. 문제를 끝까지 추적하고 재발 방지 시스템을 만드는 데 강합니다.</p>
+    </div>
+
+    <div class="metrics">
+        <div class="metric-item">
+            <div class="metric-value">15%</div>
+            <div class="metric-label">오류율 감소</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-value">30%</div>
+            <div class="metric-label">대응시간 단축</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-value">23%</div>
+            <div class="metric-label">LCP 개선</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-value">60%</div>
+            <div class="metric-label">VOC 감소</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">경력</h2>
+        <div class="experience-item">
+            <div class="company-header">
+                <span class="company-name">Softworks (SK Telecom T world Front-End Team)</span>
+                <span class="period">2022.10 – 현재</span>
+            </div>
+            <div class="role-title">Front-End Developer</div>
+            
+            <p style="margin-bottom: 10px; font-size: 9pt;">대규모 B2C 서비스(티월드) 프론트엔드 개발 및 운영 안정화. BFF API 연동 및 예외 처리 구조 설계. DataDog 기반 모니터링으로 상위 이슈 패턴 분석 및 재발 방지 체계 구축.</p>
+            
+            <p style="margin-bottom: 8px; font-size: 9pt;"><strong>기술 환경:</strong> JavaScript(ES6), TypeScript, Node.js(Express BFF), DataDog, Jenkins, Git</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">주요 프로젝트</h2>
+        
+        <div class="project">
+            <div class="project-title">1. BFF 응답 형식 변경 대응 (무중단 서비스 유지)</div>
+            <div class="project-description">백엔드 API 응답이 배열에서 객체로 변경되면서 TypeError 다발. 서비스 중단 없이 빠른 대응 필요.</div>
+            <div class="project-tech">기술: Array.isArray() 검증, Promise 기반 예외 처리, 무중단 롤아웃</div>
+            <ul class="project-results">
+                <li>서비스 오류율 0% 유지, 사용자 이탈 세션 15% 감소</li>
+                <li>런북(원인→조치→테스트) 문서화로 재발 방지 체계 확립</li>
+                <li>DataDog 로그 분석으로 상위 패턴 도출 및 Fallback 처리 구현</li>
+            </ul>
+        </div>
+
+        <div class="project">
+            <div class="project-title">2. 보안 대시보드(Customer Security Info) 통합 개발</div>
+            <div class="project-description">스팸차단, USIM 보호 등 분산된 보안 기능을 단일 UI로 통합. 월 50건 이상의 "찾을 수 없다"는 VOC 발생.</div>
+            <div class="project-tech">기술: 단일 JSON 응답, 비동기 병렬 호출, 로딩 상태 관리, CommonHelper.requestApi 활용</div>
+            <ul class="project-results">
+                <li>접근 경로 5단계 → 3단계 (40% 개선)</li>
+                <li>보안 관련 VOC 60% 감소 (월 50건 → 20건)</li>
+                <li>사용자 만족도 개선으로 앱 리뷰 평점 상승 기여</li>
+            </ul>
+        </div>
+
+        <div class="project">
+            <div class="project-title">3. 파일 업로드 검증 로직 강화</div>
+            <div class="project-description">대용량 파일, 비정상 확장자 업로드로 인한 서버 부하 및 업로드 실패 VOC 지속 발생.</div>
+            <div class="project-tech">기술: 3MB 제한, 확장자 화이트리스트, 총합 용량 검사</div>
+            <ul class="project-results">
+                <li>비정상 업로드 100% 차단, 관련 VOC 전면 제거</li>
+                <li>사용자 친화적 에러 메시지 개선</li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="section">
+        <h2 class="section-title">개인 프로젝트</h2>
+
+        <div class="personal-project">
+            <div class="personal-project-header">
+                <span class="personal-project-title">React 프로젝트 (배포 완료)</span>
+                <span class="period">2025.08 – 2025.12</span>
+            </div>
+            
+            <div style="margin-bottom: 12px;">
+                <p style="font-size: 10pt; font-weight: bold; margin-bottom: 4px;">1. Group Emotion Diary — 감정 일기 앱</p>
+                <p style="font-size: 9pt; margin-bottom: 4px;"><strong>배포:</strong> <a href="https://group-emotion-diary-seven.vercel.app/" target="_blank" rel="noopener">Group Emotion Diary</a> — 감정 일기 React 데모 ("https://group-emotion-diary-seven.vercel.app/")</p>
+                <p style="font-size: 9pt; margin-bottom: 4px;">일상 속 감정을 기록하고 통계로 시각화하는 애플리케이션</p>
+                <p style="font-size: 9pt; margin-bottom: 4px;"><strong>기술:</strong> React 18, Context API, React Router, Recharts</p>
+                <p style="font-size: 9pt;"><strong>구현:</strong> 일기 CRUD, 감정별 색상 구분, 월별 통계 차트, 반응형 디자인</p>
+                <p style="font-size: 9pt;"><strong>GitHub_Repository:</strong> <a href="https://github.com/Byeong-Gwan/group-emotion-diary">GitHub 이동</a></p>
+            </div>
+            
+            <div style="margin-bottom: 12px;">
+                <p style="font-size: 10pt; font-weight: bold; margin-bottom: 4px;">2. Movie React Demo — 넷플릭스 클론</p>
+                <p style="font-size: 9pt; margin-bottom: 4px;"><strong>배포:</strong> <a href="https://movie-react-demo-app.vercel.app/" target="_blank" rel="noopener">Movie React Demo</a> — 영화 API 기반 넷플릭스 클론 ("https://movie-react-demo-app.vercel.app/")</p>
+                <p style="font-size: 9pt; margin-bottom: 4px;">TMDB API를 활용한 영화 검색 및 정보 제공 애플리케이션</p>
+                <p style="font-size: 9pt; margin-bottom: 4px;"><strong>기술:</strong> React 18, React Router, Axios, TMDB API, Styled-components</p>
+                <p style="font-size: 9pt;"><strong>구현:</strong> 영화 검색/필터링, 상세 정보, 무한 스크롤, 이미지 lazy loading</p>
+                <p style="font-size: 9pt;"><strong>GitHub_Repository:</strong><a href="https://github.com/Byeong-Gwan/netflix-demo6_7"> GitHub 이동</a></p>
+            </div>
+            
+            <div style="margin-bottom: 12px;">
+                <p style="font-size: 10pt; font-weight: bold; margin-bottom: 4px;">3. Phonebook Demo — 연락처 관리 앱 (Zustand)</p>
+                <p style="font-size: 9pt; margin-bottom: 4px;"><strong>배포:</strong> <a href="https://zustand-phonebook-demo-alpha.vercel.app/" target="_blank" rel="noopener">Phonebook Demo (Zustand)</a> — 전역 상태 관리 데모 ("https://zustand-phonebook-demo-alpha.vercel.app/")</p>
+                <p style="font-size: 9pt; margin-bottom: 4px;">Zustand 전역 상태 관리 학습용 프로젝트</p>
+                <p style="font-size: 9pt; margin-bottom: 4px;"><strong>기술:</strong> React 18, Zustand, TypeScript</p>
+                <p style="font-size: 9pt;"><strong>구현:</strong> 연락처 CRUD, 검색/정렬, 그룹 분류, TypeScript 타입 안정성</p>
+                <p style="font-size: 9pt;"><strong>GitHub_Repository:</strong> <a href="https://github.com/Byeong-Gwan/zustand-phonebook-demo">GitHub 이동</a></p>
+            </div>
+        </div>
+        
+        <div class="personal-project">
+            <div class="personal-project-header">
+                <span class="personal-project-title">TechBoard (Q&A 게시판 플랫폼)</span>
+                <span class="period">2025.09 – 2025.11</span>
+            </div>
+            <p style="font-size: 9pt; margin-bottom: 8px;">개발자 커뮤니티를 위한 Q&A 플랫폼. 스팸 방지 시스템과 미디어 지원 기능 포함. 1인 풀스택 개발.</p>
+            <p style="font-size: 9pt; margin-bottom: 8px;"><strong>기술 스택:</strong> Spring Boot 3, Java 17, PostgreSQL, MyBatis, Thymeleaf, Docker Compose, Flyway</p>
+            
+            <ul class="feature-list">
+                <li>게시글/댓글/대댓글 CRUD</li>
+                <li>승인 기반 권한 시스템</li>
+                <li>이미지/동영상 업로드</li>
+                <li>CKEditor 리치 텍스트</li>
+                <li>키워드 검색, 카테고리 필터</li>
+                <li>페이지네이션</li>
+            </ul>
+            
+            <p style="font-size: 9pt; margin-top: 8px;"><strong>성과:</strong> 페이징 적용 후 목록 로딩 시간 40% 단축, 승인 워크플로우 도입으로 스팸 게시글 90% 이상 차단</p>
+        </div>
+
+        <div class="personal-project">
+            <div class="personal-project-header">
+                <span class="personal-project-title">React 학습 프로젝트</span>
+                <span class="period">진행 중</span>
+            </div>
+            <p style="font-size: 9pt; margin-bottom: 5px;"><strong>react-study:</strong> 컴포넌트 단위 설계, Hooks 기반 상태 관리 학습</p>
+            <p style="font-size: 9pt;"><strong>hnm-react-router-practice:</strong> React Router 라우팅 패턴 실습</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">기술 스택</h2>
+        <div class="skills-grid">
+            <div class="skill-category">언어</div>
+            <div class="skill-list">JavaScript(ES3~ES6), TypeScript</div>
+            
+            <div class="skill-category">프레임워크</div>
+            <div class="skill-list">Node.js(Express BFF), React(학습 중), Spring Boot 3</div>
+            
+            <div class="skill-category">운영 및 모니터링</div>
+            <div class="skill-list">DataDog, Jenkins, 내부 로그 대시보드</div>
+            
+            <div class="skill-category">협업 및 도구</div>
+            <div class="skill-list">Git, Jira, Confluence, Slack, IntelliJ, Chrome DevTools</div>
+            
+            <div class="skill-category">성능 및 품질</div>
+            <div class="skill-list">성능 최적화(LCP, TTFB), 코드 스플리팅, 지연 로딩, 접근성(A11y)</div>
+            
+            <div class="skill-category">AI 도구 활용</div>
+            <div class="skill-list">ChatGPT, GitHub Copilot, Cursor (리팩토링, 테스트 케이스 생성, 코드 리뷰 보조)</div>
+            
+            <div class="skill-category">데이터베이스</div>
+            <div class="skill-list">PostgreSQL, MyBatis</div>
+            
+            <div class="skill-category">DevOps</div>
+            <div class="skill-list">Docker Compose, Flyway 마이그레이션</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">AI 활용 경험</h2>
+        <ul class="project-results">
+            <li>ChatGPT로 리팩토링 초안 및 테스트 케이스 제안 → 기능 배포 리드타임 약 30% 단축</li>
+            <li>AI 보조 코드 리뷰로 잠재 오류 조기 발견 → 화면 오류율 11.8%에서 9.9%로 개선(약 15% 감소)</li>
+            <li>프롬프트 템플릿화(버그 재현, 테스트 시나리오, 릴리즈 노트 초안)로 협업/QA 소통 효율 향상</li>
+            <li>민감 정보 마스킹 및 사내 보안 가이드를 준수하며 도구 사용</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">자격 및 활동</h2>
+        <div style="margin-bottom: 10px;">
+            <span class="certification">정보처리기사 (2025)</span>
+        </div>
+        <ul class="project-results">
+            <li>GitHub: 알고리즘 문제 풀이, 실무 로직 분석 포스팅</li>
+            <li>'코딩알려주는눈나' React 스터디 참여</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">개인 프로젝트</h2>
+        <ul class="project-results">
+           
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">강점</h2>
+        <ul class="project-results">
+            <li><strong>문제 해결 능력:</strong> 원인 분석 → 해결 → 재발 방지 체계화</li>
+            <li><strong>운영 경험:</strong> 대규모 서비스 안정화 및 성능 최적화 실전 경험</li>
+            <li><strong>빠른 학습:</strong> AI 도구 활용, 개인 프로젝트로 새 기술 습득</li>
+            <li><strong>데이터 기반 커뮤니케이션:</strong> 숫자로 증명하는 성과 관리</li>
+            <li><strong>풀스택 이해도:</strong> 프론트엔드뿐 아니라 BFF, 백엔드까지 경험</li>
+        </ul>
+    </div>
+
+    <script>
+        // PDF 출력을 위한 스크립트
+        window.onload = function() {
+            // Ctrl+P 또는 Cmd+P 단축키 안내
+            console.log('PDF로 저장하려면 Ctrl+P (Windows) 또는 Cmd+P (Mac)을 누르세요.');
+        };
+    </script>
+</body>
+</html>
