@@ -31,12 +31,42 @@
             border-bottom: 2px solid #2c3e50;
             padding-bottom: 15px;
             margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 16px;
         }
         
         .header h1 {
             font-size: 24pt;
             color: #2c3e50;
             margin-bottom: 5px;
+        }
+        
+        .header-main {
+            flex: 1;
+            min-width: 0;
+        }
+        
+        .header-qr {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .header-qr img {
+            width: 88px;
+            height: 88px;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            object-fit: cover;
+        }
+        
+        .header-qr .caption {
+            font-size: 8pt;
+            color: #6b7280;
+            margin-top: 4px;
+            text-align: center;
         }
         
         .header .role {
@@ -246,6 +276,7 @@
             margin-right: 10px;
         }
         
+        
         @media print {
             body {
                 padding: 0;
@@ -254,44 +285,56 @@
             .page-break {
                 page-break-after: always;
             }
+            
         }
     </style>
 </head>
 <body>
     <div class="header">
-        <h1>김병관</h1>
-        <div class="role">Front-End Developer</div>
-        <div class="contact">
-            <span class="contact-item">ansd_my3073@naver.com</span>
-            <a class="contact-item" href="https://github.com/byeong-gwan">github.com/byeong-gwan</a>
-            <span class="contact-item">010-4695-9120</span>
-            <span class="contact-item">경기도 화성시</span>
+        <div class="header-main"><br>
+            <h1>김병관</h1>
+            <div class="role">Front-End Developer</div>
+            <div class="contact">
+                <span class="contact-item">ansd_my3073@naver.com</span>
+                <a class="contact-item" href="https://github.com/byeong-gwan">github.com/byeong-gwan</a>
+                <span class="contact-item">010-4695-9120</span>
+                <span class="contact-item">경기도 화성시</span>
+            </div>
+        </div>
+        <div class="header-qr">
+            <img src="png/github.png" alt="GitHub QR" />
+            <div class="caption">GitHub QR</div>
         </div>
     </div>
 
     <div class="summary">
-        <p>3년 4개월 차 프론트엔드 개발자. 월 수백만 사용자 서비스에서 운영 안정화 및 성능 개선 기여. 
-            복잡한 케이스별 분기 처리 및 VOC 일차 대응 경험. 
-            맡은 업무는 일정 내 완수하는 책임감과 끝까지 해결하는 문제 해결 능력을 갖췄습니다.
+        <p> 3년 차 프론트엔드 개발자 김병관입니다.
+            주로 대규모 서비스 운영 경험을 통해
+            예외 상황을 하나씩 정리하고 안정적으로 동작하게 만드는 일에 익숙해졌습니다.
+            빠르게 만드는 것보다 왜 그렇게 동작하는지 이해하고 개발하는 과정을 더 중요하게 생각합니다.
+            
+            아직 배워야 할 부분도 많지만,
+            주어진 문제는 끝까지 파고들어 해결하려는 편이며
+            안정적인 사용자 경험을 만드는 프론트엔드 개발자로 성장하고 싶습니다.
         </p>
     </div>
 
     <div class="metrics">
         <div class="metric-item">
-            <div class="metric-value">15%</div>
-            <div class="metric-label">오류율 감소</div>
+            <div class="metric-value">안정성</div>
+            <div class="metric-label">예외처리 및 오류방지 로직 다수개선</div>
         </div>
         <div class="metric-item">
-            <div class="metric-value">30%</div>
-            <div class="metric-label">대응시간 단축</div>
+            <div class="metric-value">운영</div>
+            <div class="metric-label">반복이슈 분석 및 대응프로세스 정리</div>
         </div>
         <div class="metric-item">
-            <div class="metric-value">23%</div>
-            <div class="metric-label">LCP 개선</div>
+            <div class="metric-value">사용자 경험</div>
+            <div class="metric-label">로딩실패·진입 오류감소에 기여</div>
         </div>
         <div class="metric-item">
-            <div class="metric-value">60%</div>
-            <div class="metric-label">VOC 감소</div>
+            <div class="metric-value">협업</div>
+            <div class="metric-label">BFF/QA와의 커뮤니케이션 원활</div>
         </div>
     </div>
 
@@ -323,20 +366,20 @@
             <div class="project-description">백엔드 API 응답이 배열에서 객체로 변경되면서 TypeError 다발. 서비스 중단 없이 빠른 대응 필요.</div>
             <div class="project-tech">기술: Array.isArray() 검증, Promise 기반 예외 처리, 무중단 롤아웃</div>
             <ul class="project-results">
-                <li>서비스 오류율 0% 유지, 사용자 이탈 세션 15% 감소</li>
-                <li>재발 방지를 위한 런북(원인→조치→테스트) 문서화</li>
-                <li>DataDog 로그 분석으로 상위 패턴 도출 및 Fallback 처리 구현</li>
+                <li>사용자 영향 없이 문제를 해결하며 운영 안정성 유지</li>
+                <li>DataDog로 에러 패턴을 정리하고 fallback 로직을 적용</li>
+                <li>원인→조치 과정을 문서화해 재발 방지 체계를 마련</li>
             </ul>
         </div>
 
         <div class="project">
             <div class="project-title">2. 보안 대시보드(Customer Security Info) 통합 개발</div>
-            <div class="project-description">스팸차단, USIM 보호 등 분산된 보안 기능을 단일 UI로 통합. 월 50건 이상의 "찾을 수 없다"는 VOC 발생.</div>
+            <div class="project-description">스팸차단, USIM 보호 등 분산된 보안 기능을 단일 UI로 통합. "찾을 수 없다"는 VOC가 반복적으로 발생.</div>
             <div class="project-tech">기술: 단일 JSON 응답, 비동기 병렬 호출, 로딩 상태 관리, CommonHelper.requestApi 활용</div>
             <ul class="project-results">
-                <li>접근 경로 5단계 → 3단계 (40% 개선)</li>
-                <li>보안 관련 VOC 60% 감소 (월 50건 → 20건)</li>
-                <li>케이스별 복잡한 분기 처리 및 예외 상황 대응</li>
+                <li>페이지 이동 흐름을 단순화하고 접근성을 개선</li>
+                <li>복잡한 케이스별 분기를 정리하고 예외 처리를 보강</li>
+                <li>VOC 발생 원인을 정리하고 흐름을 단순화</li>
             </ul>
         </div>
 
@@ -345,11 +388,11 @@
             <div class="project-description">대용량 파일, 비정상 확장자 업로드로 인한 서버 부하 및 업로드 실패 VOC 지속 발생.</div>
             <div class="project-tech">기술: 3MB 제한, 확장자 화이트리스트, 총합 용량 검사</div>
             <ul class="project-results">
-                <li>비정상 업로드 100% 차단, 관련 VOC 전면 제거</li>
-                <li>사용자 친화적 에러 메시지 개선</li>
+                <li>비정상 업로드를 사전에 차단하는 검증 체계 강화</li>
+                <li>사용자 친화적 에러 메시지로 업로드 흐름 개선</li>
             </ul>
         </div>
-    </div>
+    </div><br>
 
 
     <div class="section">
@@ -361,31 +404,34 @@
                 <span class="period">2025.08 – 2025.12</span>
             </div>
             
-            <div style="margin-bottom: 12px;">
-                <p style="font-size: 10pt; font-weight: bold; margin-bottom: 4px;">1. Group Emotion Diary — 감정 일기 앱</p>
-                <p style="font-size: 9pt; margin-bottom: 4px;"><strong>배포:</strong> <a href="https://group-emotion-diary-seven.vercel.app/" target="_blank" rel="noopener">Group Emotion Diary</a> — 감정 일기 React 데모 ("https://group-emotion-diary-seven.vercel.app/")</p>
-                <p style="font-size: 9pt; margin-bottom: 4px;">일상 속 감정을 기록하고 통계로 시각화하는 애플리케이션</p>
-                <p style="font-size: 9pt; margin-bottom: 4px;"><strong>기술:</strong> React 18, Context API, React Router, Recharts</p>
-                <p style="font-size: 9pt;"><strong>구현:</strong> 일기 CRUD, 감정별 색상 구분, 월별 통계 차트, 반응형 디자인</p>
-                <p style="font-size: 9pt;"><strong>GitHub_Repository:</strong> <a href="https://github.com/Byeong-Gwan/group-emotion-diary">GitHub 이동</a></p>
+            <div class="proj-row" style="display:flex; gap:16px; align-items:flex-start; justify-content:space-between; margin-bottom:12px;">
+                <div class="proj-text" style="flex:1; min-width:0;">
+                    <p style="font-size: 10pt; font-weight: bold; margin-bottom: 4px;">1. Movie React Demo — 넷플릭스 클론</p>
+                    <p style="font-size: 9pt; margin-bottom: 4px;"><strong>배포:</strong> <a href="https://movie-react-demo-app.vercel.app/" target="_blank" rel="noopener">Movie React Demo</a> — 영화 API 기반 넷플릭스 클론 ("https://movie-react-demo-app.vercel.app/")</p>
+                    <p style="font-size: 9pt; margin-bottom: 4px;">TMDB API를 활용한 영화 검색 및 정보 제공 애플리케이션</p>
+                    <p style="font-size: 9pt; margin-bottom: 4px;"><strong>기술:</strong> React 18, React Router, Axios, TMDB API, Styled-components</p>
+                    <p style="font-size: 9pt;"><strong>구현:</strong> 영화 검색/필터링, 상세 정보, 무한 스크롤, 이미지 lazy loading</p>
+                    <p style="font-size: 9pt;"><strong>GitHub_Repository:</strong><a href="https://github.com/Byeong-Gwan/netflix-demo6_7"> GitHub 이동</a></p>
+                </div>
+                <div class="proj-qr" style="flex:0 0 auto; text-align:center;">
+                    <img src="png/Movie.png" alt="Movie React Demo QR" style="width:88px;height:88px; border:1px solid #e5e7eb; border-radius:6px;" />
+                    <div style="font-size:8pt; color:#6b7280; margin-top:4px;">QR 코드</div>
+                </div>
             </div>
             
-            <div style="margin-bottom: 12px;">
-                <p style="font-size: 10pt; font-weight: bold; margin-bottom: 4px;">2. Movie React Demo — 넷플릭스 클론</p>
-                <p style="font-size: 9pt; margin-bottom: 4px;"><strong>배포:</strong> <a href="https://movie-react-demo-app.vercel.app/" target="_blank" rel="noopener">Movie React Demo</a> — 영화 API 기반 넷플릭스 클론 ("https://movie-react-demo-app.vercel.app/")</p>
-                <p style="font-size: 9pt; margin-bottom: 4px;">TMDB API를 활용한 영화 검색 및 정보 제공 애플리케이션</p>
-                <p style="font-size: 9pt; margin-bottom: 4px;"><strong>기술:</strong> React 18, React Router, Axios, TMDB API, Styled-components</p>
-                <p style="font-size: 9pt;"><strong>구현:</strong> 영화 검색/필터링, 상세 정보, 무한 스크롤, 이미지 lazy loading</p>
-                <p style="font-size: 9pt;"><strong>GitHub_Repository:</strong><a href="https://github.com/Byeong-Gwan/netflix-demo6_7"> GitHub 이동</a></p>
-            </div>
-            
-            <div style="margin-bottom: 12px;">
-                <p style="font-size: 10pt; font-weight: bold; margin-bottom: 4px;">3. Phonebook Demo — 연락처 관리 앱 (Zustand)</p>
-                <p style="font-size: 9pt; margin-bottom: 4px;"><strong>배포:</strong> <a href="https://zustand-phonebook-demo-alpha.vercel.app/" target="_blank" rel="noopener">Phonebook Demo (Zustand)</a> — 전역 상태 관리 데모 ("https://zustand-phonebook-demo-alpha.vercel.app/")</p>
-                <p style="font-size: 9pt; margin-bottom: 4px;">Zustand 전역 상태 관리 학습용 프로젝트</p>
-                <p style="font-size: 9pt; margin-bottom: 4px;"><strong>기술:</strong> React 18, Zustand, TypeScript</p>
-                <p style="font-size: 9pt;"><strong>구현:</strong> 연락처 CRUD, 검색/정렬, 그룹 분류, TypeScript 타입 안정성</p>
-                <p style="font-size: 9pt;"><strong>GitHub_Repository:</strong> <a href="https://github.com/Byeong-Gwan/zustand-phonebook-demo">GitHub 이동</a></p>
+            <div class="proj-row" style="display:flex; gap:16px; align-items:flex-start; justify-content:space-between; margin-bottom:12px;">
+                <div class="proj-text" style="flex:1; min-width:0;">
+                    <p style="font-size: 10pt; font-weight: bold; margin-bottom: 4px;">2. Phonebook Demo — 연락처 관리 앱 (Zustand)</p>
+                    <p style="font-size: 9pt; margin-bottom: 4px;"><strong>배포:</strong> <a href="https://zustand-phonebook-demo-alpha.vercel.app/" target="_blank" rel="noopener">Phonebook Demo (Zustand)</a> — 전역 상태 관리 데모 ("https://zustand-phonebook-demo-alpha.vercel.app/")</p>
+                    <p style="font-size: 9pt; margin-bottom: 4px;">Zustand 전역 상태 관리 학습용 프로젝트</p>
+                    <p style="font-size: 9pt; margin-bottom: 4px;"><strong>기술:</strong> React 18, Zustand, TypeScript</p>
+                    <p style="font-size: 9pt;"><strong>구현:</strong> 연락처 CRUD, 검색/정렬, 그룹 분류, TypeScript 타입 안정성</p>
+                    <p style="font-size: 9pt;"><strong>GitHub_Repository:</strong> <a href="https://github.com/Byeong-Gwan/zustand-phonebook-demo">GitHub 이동</a></p>
+                </div>
+                <div class="proj-qr" style="flex:0 0 auto; text-align:center;">
+                    <img src="png/phonebook.png" alt="Phonebook Demo QR" style="width:88px;height:88px; border:1px solid #e5e7eb; border-radius:6px;" />
+                    <div style="font-size:8pt; color:#6b7280; margin-top:4px;">QR 코드</div>
+                </div>
             </div>
         </div>
         
@@ -406,7 +452,7 @@
                 <li>페이지네이션</li>
             </ul>
             
-            <p style="font-size: 9pt; margin-top: 8px;"><strong>성과:</strong> 페이징 적용 후 목록 로딩 시간 40% 단축, 승인 워크플로우 도입으로 스팸 게시글 90% 이상 차단</p>
+            <p style="font-size: 9pt; margin-top: 8px;"><strong>성과:</strong> 페이징 적용으로 목록 로딩 흐름을 개선하고, 승인 워크플로우 도입으로 스팸 게시글 유입을 효과적으로 차단</p>
         </div>
 
         <div class="personal-project">
@@ -434,9 +480,6 @@
             <div class="skill-category">협업 및 도구</div>
             <div class="skill-list">Git, Jira, Confluence, Slack, IntelliJ, Chrome DevTools</div>
             
-            <div class="skill-category">성능 및 품질</div>
-            <div class="skill-list">성능 최적화(LCP, TTFB), 코드 스플리팅, 지연 로딩, 접근성(A11y)</div>
-            
             <div class="skill-category">AI 도구 활용</div>
             <div class="skill-list">ChatGPT, GitHub Copilot, Cursor (리팩토링, 테스트 케이스 생성, 코드 리뷰 보조)</div>
             
@@ -446,13 +489,13 @@
             <div class="skill-category">DevOps</div>
             <div class="skill-list">Docker Compose, Flyway 마이그레이션</div>
         </div>
-    </div>
+    </div><br><br><br><br>
 
     <div class="section">
         <h2 class="section-title">AI 활용 경험</h2>
         <ul class="project-results">
-            <li>ChatGPT로 리팩토링 초안 및 테스트 케이스 제안 → 기능 배포 리드타임 약 30% 단축</li>
-            <li>AI 보조 코드 리뷰로 잠재 오류 조기 발견 → 화면 오류율 개선 기여(약 15% 감소)</li>
+            <li>ChatGPT로 리팩토링 초안 및 테스트 케이스 제안 → 기능 배포 리드타임 단축에 기여</li>
+            <li>AI 보조 코드 리뷰로 잠재 오류 조기 발견 → 화면 오류율 개선에 기여</li>
             <li>프롬프트 템플릿화(버그 재현, 테스트 시나리오, 릴리즈 노트 초안)로 협업/QA 소통 효율 향상</li>
             <li>민감 정보 마스킹 및 사내 보안 가이드를 준수하며 도구 사용</li>
         </ul>
@@ -470,20 +513,13 @@
     </div>
 
     <div class="section">
-        <h2 class="section-title">개인 프로젝트</h2>
-        <ul class="project-results">
-           
-        </ul>
-    </div>
-
-    <div class="section">
         <h2 class="section-title">강점</h2>
         <ul class="project-results">
             <li><strong>문제 해결 능력:</strong> 원인 분석 → 해결 → 재발 방지 체계화</li>
             <li><strong>운영 경험:</strong> 대규모 서비스 안정화 및 성능 최적화 실전 경험</li>
             <li><strong>빠른 학습:</strong> AI 도구 활용, 개인 프로젝트로 새 기술 습득</li>
             <li><strong>데이터 기반 커뮤니케이션:</strong> 숫자로 증명하는 성과 관리</li>
-            <li><strong>풀스택 이해도:</strong> 프론트엔드뿐 아니라 BFF, 백엔드까지 경험</li>
+            <li><strong>풀스택 이해도:</strong> 프론트엔드뿐 아니라 BFF, 백엔드 학습</li>
         </ul>
     </div>
 
