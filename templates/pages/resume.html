@@ -10,9 +10,17 @@
   </header>
 
   <p class="summary">
-    월 평균 수백만 명 이상이 방문하는 대규모 B2C 서비스(T world)의 프론트엔드 운영과 안정화를 책임지는 3년 차 개발자입니다. 대규모 트래픽 환경에서 발생하는 기술 부채를 해결하고, 에러 모니터링 시스템(DataDog)을 활용해 장애 발생률을 낮추는 데 강점이 있습니다. 최근에는 AI 도구를 활용해 Java/Spring Boot 풀스택 프로젝트를 완수하는 등 기술적 확장성과 생산성 극대화를 실천하고 있습니다.
+    <strong style="font-size: 1.1rem; color: #333;">[운영 환경의 오류를 분석하고 구조적으로 개선하는 프론트엔드 개발자]</strong><br>
+    T-World 운영 중 DataDog 모니터링을 통해 반복적으로 누적되는 TypeError를 확인했고, 호출 흐름과 응답 구조를 추적해 원인을 분석했습니다.
+    이후 BFF 응답 타입 불일치 구간에 Array.isArray 기반 타입 가드와 기본값 처리 로직을 적용해 런타임 오류를 줄였고,
+    공통 예외 처리 유틸리티로 정리하여 운영 안정성과 유지보수성을 높였습니다.
   </p>
-  <div class="summary-keywords">대규모 서비스 운영 · 기술 부채 해결 · 에러 모니터링 · 장애 대응 · AI 활용 풀스택</div>
+
+  <p class="summary">
+    <strong style="font-size: 1.1rem; color: #333;">[분산된 기능을 통합하고 사용자 관점에서 화면 구조를 개선하는 역량]</strong><br>
+    고객 보호 강화를 위한 보안 대시보드 신규 서비스를 구축하며, 여러 메뉴에 흩어져 있던 보안 기능을 하나의 화면으로 통합했습니다.
+    데이터 객체와 세션 구조를 정리해 API 연동 흐름을 단순화했고, 비동기 처리 로직을 정리하여 신규 기능 개발과 유지보수 복잡도를 낮추는 데 집중했습니다.
+  </p>
 
   <section class="section">
     <h2>경력</h2>
@@ -21,62 +29,134 @@
         <div class="exp-title">Softworks (SK Telecom T world 프론트엔드 팀) · 프론트엔드 개발자</div>
         <div class="exp-period">2022.10 – 현재</div>
       </div>
-      <h3 class="proj-title" style="margin:6px 0 4px;">주요 업무 및 역할</h3>
+
+      <h5 class="proj-title" style="margin:6px 0 4px;">주요 업무 및 역할</h5>
       <ul class="bullets">
-        <li>BFF API 연동 및 예외 처리 로직 개선: BFF_05_0047, BFF_05_0222, BFF_07_0131 등 다수 API 연동 담당</li>
-        <li>data.forEach TypeError 이슈 해결: Array.isArray() 기반 검증 및 단일 객체 대응 처리</li>
-        <li>Promise 기반 예외 처리 모듈 분리로 배포 중단 없이 에러 대응 구조 확립</li>
-        <li>DataDog/내부 로그로 응답 실패율·Timeout 등 상위 패턴 도출, 런북(원인→조치→테스트) 정립</li>
-        <li>파일 업로드 검증 강화: 3MB 제한 및 확장자 화이트리스트, 총합 용량 검사 로직 보완</li>
-        <li>보안 대시보드 신규 개발: 분산 기능 단일 UI 통합, 비동기 병렬 호출·로딩 상태 관리 설계</li>
-        <li>공통 Helper로 API 호출 로직 단일화(CommonHelper.requestApi), 중복 호출 제거</li>
+        <li>BFF API 연동 및 응답 데이터 예외 처리 로직 개선</li>
+        <li>DataDog 기반 에러 모니터링 및 운영 안정화 대응</li>
+        <li>보안 대시보드 신규 개발 및 기존 보안 기능 UI 통합</li>
+        <li>공통 Helper를 활용한 API 호출 로직 단일화 및 중복 제거</li>
+        <li>파일 업로드 검증 강화 및 보안 관련 로직 보완</li>
       </ul>
-      <h3 class="proj-title" style="margin:8px 0 4px;">핵심 성과 요약</h3>
-      <ul class="bullets impact">
-        <li>요금조회 API 화면 오류율 11.8% → 9.9% (약 -15%)</li>
-        <li>QA/온콜 대응 시간 평균 10분 → 7분 (-30%)</li>
-        <li>핵심 화면 LCP 3.1s → 2.4s (-23%)</li>
-        <li>보안 서비스 접근 단계 5 → 3 (-40%)</li>
-        <li>보안 관련 VOC 월 50건 → 20건 (-60%)</li>
-      </ul>
-      <h3 class="proj-title" style="margin:8px 0 4px;">문제 해결 사례</h3>
-      <ul class="bullets">
-        <li>[1] BFF 응답 형식 변경(배열→객체)로 forEach 예외 다발 → Array.isArray() 분기, Fallback, 회귀 테스트 추가(무중단 롤아웃) → 서비스 오류율 0%, 이탈 세션 15% 감소</li>
-        <li>[2] 파일 업로드 안정성: Tw.MAX_UPLOAD_FILE_SIZE(3MB)·확장자 검사·총용량 검증으로 비정상 업로드 0%, VOC 전면 제거</li>
-        <li>[3] 보안 대시보드: 단일 JSON 응답·병렬 로딩·경로 축소로 접근성 40% 개선, VOC 60% 감소</li>
-      </ul>
+
       <div class="stack">JavaScript, TypeScript, Tw.*(Tw.Api/Popup/CommonHelper/Navigation), Express(BFF), DataDog, Jenkins, Jira/Confluence, Slack</div>
     </div>
   </section>
 
   <section class="section">
-    <h2>주요 프로젝트</h2>
-    <div class="proj-item">
-      <div class="proj-title">1. BFF 응답 구조 변경에 따른 런타임 에러 선제적 방어</div>
-      <ul class="bullets">
-        <li>배경: API 규격 변경(배열→객체)으로 인한 클라이언트 측 TypeError 발생 가능성 분석</li>
-        <li>기술: Array.isArray() 기반 전역 예외 처리 로직 설계, Promise 기반 Fallback 구현</li>
-        <li>성과: 배포 후 런타임 에러 발생률을 기존 대비 90% 이상 차단하여 서비스 가용성 확보 및 무중단 서비스 유지</li>
-        <li>운영: DataDog 로그 분석을 통한 상위 패턴 도출 및 재발 방지 런북 문서화</li>
+    <h2>프로젝트</h2>
+
+    <div class="achievement-summary">
+      <h5 class="proj-title">핵심 성과</h5>
+      <ul class="bullets impact">
+        <li>DataDog 기반 모니터링으로 반복 TypeError 원인 분석 및 공통 대응 구조 적용</li>
+        <li>BFF 응답 타입 불일치에 대한 타입 가드와 기본값 처리 로직 도입</li>
+        <li>공통 Helper 기반 API 호출 구조 정리로 중복 코드 및 예외 처리 방식 일원화</li>
+        <li>핵심 화면 성능 개선 작업 참여로 LCP 3.1s → 2.4s 개선</li>
       </ul>
     </div>
-    <div class="proj-item">
-      <div class="proj-title">2. 사용자 편의성 향상을 위한 보안 대시보드 통합 및 진입 경로 최적화</div>
-      <ul class="bullets">
-        <li>배경: 산재해 있던 보안 설정 기능으로 인한 월 50건 이상의 "찾을 수 없다" VOC 반복 발생</li>
-        <li>기술: 단일 UI로 통합, 비동기 병렬 호출 구현, 로딩 상태 관리 최적화</li>
-        <li>성과: 사용자 접근 단계를 3단계에서 1단계로 단축, 중복되던 VOC 접수 건수를 대폭 감소시키고 고객 지원 부서의 운영 리소스를 효율화함 (보안 VOC 60% 감소: 50→20건)</li>
-        <li>효과: 사용자 만족도 개선 및 리뷰 평점 상승 기여</li>
-      </ul>
-    </div>
-    <div class="proj-item">
-      <div class="proj-title">3. 데이터 기반의 이슈 추적 및 기술 부채 문서화를 통한 팀 생산성 기여</div>
-      <ul class="bullets">
-        <li>배경: 불분명한 장애 원인으로 인한 반복적인 이슈 발생 및 대응 시간 지연</li>
-        <li>기술: DataDog을 활용한 로그 레벨 분석, 원인-조치-테스트 구조의 재발 방지 문서 작성</li>
-        <li>성과: 장애 복구 시간(MTTR) 단축 및 동일 유형 장애 재발 방지 프로세스 구축, 기술 위키(Confluence) 30여 건 작성</li>
-        <li>효과: 팀 전체의 장애 대응 역량 강화 및 온보딩 시간 단축</li>
-      </ul>
+
+    <div class="projects-container"><br>
+      <h5 class="proj-title">프로젝트 상세</h5>
+
+      <div class="projects-grid">
+        <div class="proj-item">
+          <div class="proj-title">T월드 / 보안 대시보드 구축</div>
+          <div class="proj-period">2025.07.10 - 2025.11.05 (0년 3개월)</div>
+          <div class="proj-content">
+            <div class="proj-section">
+              <strong>분산된 보안 기능을 단일 화면으로 통합한 신규 서비스 구축</strong>
+              <ul class="bullets">
+                <li>여러 메뉴에 분산된 보안 기능을 하나의 화면에서 확인할 수 있도록 UI 통합</li>
+                <li>데이터 객체 및 세션 구조를 정리해 화면 흐름과 API 연동 구조 단순화</li>
+                <li>비동기 처리 흐름을 정리해 신규 페이지 개발 및 유지보수 복잡도 완화</li>
+                <li>오픈 전 예외 케이스 점검 및 안정성 보완</li>
+              </ul>
+            </div>
+            <div class="proj-section">
+              <strong>기술</strong>
+              <ul class="bullets">
+                <li>JavaScript / TypeScript 기반 REST API 연동 모듈 구현</li>
+                <li>타입 안정성을 고려한 API Layer 구성 및 예외 처리 로직 정리</li>
+                <li>Git Pull Request 기반 코드 리뷰 및 리팩토링 제안</li>
+              </ul>
+            </div>
+            <div class="proj-section">
+              <strong>도구</strong>
+              <ul class="bullets">
+                <li>GitLab, Jira, Slack</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="proj-item">
+          <div class="proj-title">T월드 / DataDog TypeError 이슈 개선</div>
+          <div class="proj-period">2024.07.01 - 2024.12.27 (0년 5개월)</div>
+          <div class="proj-content">
+            <div class="proj-section">
+              <strong>반복적으로 누적되던 TypeError 로그의 원인을 분석하고 공통 대응 구조를 정리한 프로젝트</strong>
+              <ul class="bullets">
+                <li>특정 페이지에 국한되지 않은 유사 오류 패턴을 여러 화면에서 확인</li>
+                <li>BFF 응답 형식 변경(배열 → 객체)으로 인한 예외 케이스 분석</li>
+                <li>Array.isArray 분기 처리, 기본값(Fallback), 회귀 테스트를 추가해 오류 대응 구조 공통화</li>
+                <li>반복 오류를 줄이고 운영 이슈 추적 효율 개선</li>
+              </ul>
+            </div>
+            <div class="proj-section">
+              <strong>기술</strong>
+              <ul class="bullets">
+                <li>JavaScript, TypeScript, async/await, REST API</li>
+                <li>DataDog, GitLab, Jira, Slack</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="proj-item">
+          <div class="proj-title">T월드 / 일시 정지 기능 개편</div>
+          <div class="proj-period">2024.01.10 - 2024.05.29 (0년 4개월)</div>
+          <div class="proj-content">
+            <div class="proj-section">
+              <strong>레거시 기능의 응답 구조를 정리하고 예외 가능성을 줄인 개편 작업</strong>
+              <ul class="bullets">
+                <li>기존 응답 객체 구조를 점검하고 예외 가능 구간 정리</li>
+                <li>타입 가드와 검증 로직을 적용해 런타임 오류 가능성 감소</li>
+                <li>기능 동작 흐름을 정리하고 유지보수 가능한 코드 구조로 개선</li>
+              </ul>
+            </div>
+            <div class="proj-section">
+              <strong>기술</strong>
+              <ul class="bullets">
+                <li>JavaScript, TypeScript Interface 정의를 통한 객체 속성 검증</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="proj-item">
+          <div class="proj-title">T월드 / 인터넷 설치 장소 변경취소 기능 개선</div>
+          <div class="proj-period">2023.10.02 - 2023.11.08 (0년 1개월)</div>
+          <div class="proj-content">
+            <div class="proj-section">
+              <strong>취소 후 상세 조회 오류를 분석하고 응답 데이터 검증 로직을 보완한 개선 작업</strong>
+              <ul class="bullets">
+                <li>상세 내역 조회 과정에서 발생하는 오류를 분석하고 검증 로직 보완</li>
+                <li>불필요한 API 호출을 줄이기 위한 흐름 개선 수행</li>
+                <li>가이드 공유를 통해 동일 유형 이슈 대응 방식 정리</li>
+              </ul>
+            </div>
+            <div class="proj-section">
+              <strong>기술</strong>
+              <ul class="bullets">
+                <li>JavaScript 기반 REST API 연동</li>
+                <li>jQuery 기반 DOM 조작, 이벤트 핸들링, AJAX 통신</li>
+                <li>TypeScript Type Guard를 활용한 응답 데이터 검증 및 런타임 오류 방지</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -84,25 +164,22 @@
     <div>
       <h2>기술</h2>
       <ul class="bullets">
-        <li><strong>언어</strong>: TypeScript, JavaScript (ES6+), Java</li>
-        <li><strong>프레임워크/라이브러리</strong>: React (학습/적용 중), Node.js (Express), Spring Boot</li>
-        <li><strong>DevOps/도구</strong>: DataDog (에러 모니터링 및 로그 분석), Docker, Jenkins, Git, AI Tools (Cursor, GitHub Copilot)</li>
+        <li><strong>언어</strong>: TypeScript, JavaScript, Java</li>
+        <li><strong>프레임워크/라이브러리</strong>: Node.js (Express), Spring Boot, React (개인 프로젝트 경험)</li>
         <li><strong>FE 환경</strong>: 내부 Tw.* 모듈 (Tw.Api, Tw.Popup, Tw.CommonHelper 등)</li>
         <li><strong>서버/연동</strong>: REST API, JSON 응답 처리, PostgreSQL, MyBatis</li>
+        <li><strong>모니터링/도구</strong>: DataDog, Docker, Jenkins, Git</li>
         <li><strong>협업 툴</strong>: Jira, Confluence, Slack, IntelliJ, Chrome DevTools</li>
-        <li><strong>성능/품질</strong>: 성능 최적화(LCP/TTFB), 코드 스플리팅·지연 로딩, 접근성(A11y) 개선</li>
       </ul>
     </div>
   </section>
 
-  <!-- AI 활용: 기술 바로 다음으로 이동 -->
   <section class="section">
     <h2>AI 활용</h2>
     <ul class="bullets">
-      <li>ChatGPT로 리팩토링 초안·테스트 케이스 제안을 받아 검증/보완 적용 → 기능 배포 리드타임 약 30% 단축</li>
-      <li>AI 보조 코드 리뷰로 잠재 오류 조기 발견 및 예외 처리 보강 → 화면 오류율 11.8% → 9.9% 개선(약 15%↓)</li>
-      <li>프롬프트 템플릿화(버그 재현·테스트 시나리오·릴리즈 노트 초안)로 협업/QA 소통 효율 향상</li>
-      <li>민감 정보 마스킹·사내 보안 가이드를 준수하며 도구 사용(코드/데이터 안전성 고려)</li>
+      <li>ChatGPT를 활용해 리팩토링 초안과 테스트 케이스 아이디어를 검토하고 실제 코드에 맞게 보완 적용</li>
+      <li>버그 재현, 테스트 시나리오, 릴리즈 노트 초안 작성 등 반복 업무에 활용하여 협업 효율 개선</li>
+      <li>민감 정보 마스킹 및 사내 보안 가이드를 준수하며 도구 사용</li>
     </ul>
   </section>
 
@@ -110,39 +187,49 @@
     <div>
       <h2>자격</h2>
       <ul class="bullets compact">
-        <li>정보처리기사(2024)</li>
+        <li>정보처리기사 (2024)</li>
       </ul>
     </div>
     <div>
       <h2>외부 활동</h2>
       <ul class="bullets compact">
-        <li>GitHub (알고리즘/JS 로직 정리, 실무 로직 분석 포스팅)</li>
-        <li>외부 활동 '코딩알려주는눈나' React 스터디 참여</li>
+        <li>GitHub (알고리즘 / JavaScript 로직 정리, 실무 로직 분석 포스팅)</li>
+        <li>'코딩알려주는누나' React 스터디 참여</li>
       </ul>
     </div>
   </section>
 
-  <!-- 개인 프로젝트: AI 활용 다음으로 이동 및 통합 -->
   <section class="section">
     <h2>개인 프로젝트</h2>
+
+    <div class="proj-item">
+      <div class="proj-title">학습 관리 PWA 서비스 · 2025.12 – 2026.03</div>
+      <ul class="bullets">
+        <li>Next.js 14와 PWA를 활용한 학습 관리 서비스 구축</li>
+        <li><a href="https://bg-2s-second-semester-steel.vercel.app/" target="_blank" rel="noopener">🚀 배포 링크: https://bg-2s-second-semester-steel.vercel.app/</a></li>
+        <li>Service Worker 기반 오프라인 모드 및 앱 설치(A2HS) 기능 구현</li>
+        <li>Supabase(PostgreSQL, Auth)를 활용한 인증 및 데이터 관리 기능 구현</li>
+        <li>체크리스트 진행률 계산 로직과 SVG 기반 원형 타임라인 UI 설계 및 구현</li>
+        <li>기술 스택: Next.js 14, TypeScript, Zustand, Tailwind CSS, Supabase, PWA, Vercel</li>
+      </ul>
+    </div>
+
     <div class="proj-item">
       <div class="proj-title">TechBoard (Q&A 게시판 플랫폼) · 2025.09 – 2025.11</div>
       <ul class="bullets">
-        <li>AI 도구(Cursor, Copilot)를 활용한 Java/Spring Boot 기반 풀스택 커뮤니티 구축</li>
-        <li>프론트엔드 개발자로서 AI 가이드를 활용해 낯선 스택인 Spring Boot 3, Docker, PostgreSQL 환경을 1개월 만에 구축</li>
+        <li>Java / Spring Boot 기반 커뮤니티 서비스 구축</li>
+        <li>Spring Boot 3, Docker, PostgreSQL 환경을 학습하며 게시판 기능 단계적으로 구현</li>
         <li>기술 스택: Spring Boot 3, Java 17, PostgreSQL, MyBatis, Thymeleaf, Docker Compose, Flyway</li>
-        <li>기능: 승인 기반 권한 시스템, 게시글/댓글/대댓글, 이미지/동영상 업로드, CKEditor, 키워드/카테고리, 페이지네이션 최적화</li>
-        <li>성과: 승인 기반 권한 시스템과 페이징 최적화로 초기 서비스 모델 완성, 페이징 적용 후 목록 로딩 40% 단축, 스팸 게시글 90%+ 차단</li>
+        <li>기능: 승인 기반 권한 시스템, 게시글 / 댓글 / 대댓글, 이미지 / 동영상 업로드, CKEditor, 페이지네이션</li>
       </ul>
     </div>
+
     <div class="proj-item">
-      <div class="proj-title">React 학습 프로젝트 · 진행 중</div>
+      <div class="proj-title">React 학습 프로젝트</div>
       <ul class="bullets">
-        <li>react-study: 컴포넌트 단위 설계, Hooks 기반 상태 관리 학습</li>
-        <li>hnm-react-router-practice: React Router 라우팅 패턴 실습</li>
-        <li><a href="https://group-emotion-diary-seven.vercel.app/" target="_blank" rel="noopener">Group Emotion Diary</a> — 감정 일기 React 데모</li>
-        <li><a href="https://movie-react-demo-app.vercel.app/" target="_blank" rel="noopener">Movie React Demo</a> — 영화 API 기반 넷플릭스 클론</li>
-        <li><a href="https://zustand-phonebook-demo-alpha.vercel.app/" target="_blank" rel="noopener">Phonebook Demo (Zustand)</a> — 전역 상태 관리 데모</li>
+        <li>react-study: 컴포넌트 단위 설계 및 Hooks 기반 상태 관리 학습</li>
+        <li>Group Emotion Diary — 감정 일기 React 데모</li>
+        <li>Movie React Demo — 영화 API 기반 넷플릭스 클론</li>
       </ul>
     </div>
   </section>
@@ -153,7 +240,6 @@
 </section>
 
 <script>
-  // PDF 저장 버튼: 현재 페이지 인쇄
   document.addEventListener('click', (e) => {
     const btn = e.target.closest('#btn-print');
     if (btn) {

@@ -7,6 +7,8 @@ import { ProjectsPage } from './pages/ProjectsPage.js';
 import { ContactPage } from './pages/ContactPage.js';
 import { AboutPage } from './pages/AboutPage.js';
 import { ResumePage } from './pages/ResumePage.js';
+import { ResumeModernPage } from './pages/ResumeModernPage.js';
+import { ResumeCareerPage } from './pages/ResumeCareerPage.js';
 
 /* ──────────────────────────────────────────────────────────────
    Base path support for GitHub Pages project pages
@@ -87,6 +89,8 @@ class App {
   setupRoutes() {
     // 라우트 등록 시 절대 경로 앞에 BASE를 붙여줌
     this.router.addRoute(withBase('/resume'),   () => new ResumePage());
+    this.router.addRoute(withBase('/resume-modern'), () => new ResumeModernPage());
+    this.router.addRoute(withBase('/resume-career'), () => new ResumeCareerPage());
     this.router.addRoute(withBase('/main'),     () => new HomePage());
     this.router.addRoute(withBase('/about'),    () => new AboutPage());
     this.router.addRoute(withBase('/projects'), () => new ProjectsPage());
